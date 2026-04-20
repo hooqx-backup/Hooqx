@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import { fadeUp, stagger, vp } from '../../../../lib/motion'
+import { useState, useEffect, useCallback } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { fadeUp, blurUp, stagger, vp } from '../../../../lib/motion'
 import './Testimonials.css'
 
 const testimonials = [
@@ -41,28 +42,24 @@ export default function Testimonials() {
           whileInView="show"
           viewport={vp}
         >
-          <motion.h2 className="testimonials__title" variants={fadeUp}>What Our Clients Say</motion.h2>
-          <motion.p className="testimonials__subtitle" variants={fadeUp}>Real results, real stories.</motion.p>
-        </motion.div>
+          <motion.p className="tm-eyebrow" variants={fadeUp}>
+            <span className="tm-eyebrow-line" />
+            Word on the (Digital) Street
+          </motion.p>
 
-        <motion.div
-          className="testimonials__grid"
-          initial="hidden"
-          whileInView="show"
-          viewport={vp}
-        >
-          {testimonials.map((t, i) => (
-            <motion.div key={t.name} className="testimonials__card" variants={cardVariant(i)}>
-              <p className="testimonials__quote">"{t.quote}"</p>
-              <div className="testimonials__author">
-                <div className="testimonials__avatar" />
-                <div>
-                  <span className="testimonials__name">{t.name}</span>
-                  <span className="testimonials__role">{t.role}</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          <motion.h2 className="tm-title" variants={blurUp}>
+            Byte-Sized Love:<br />
+            <em className="tm-title-accent">Testimonials</em> Edition
+          </motion.h2>
+
+          <motion.ul className="tm-features" variants={stagger(0, 0.1)}>
+            {features.map((f, i) => (
+              <motion.li key={i} className="tm-feature" variants={fadeUp}>
+                <CheckIcon />
+                <span>{f}</span>
+              </motion.li>
+            ))}
+          </motion.ul>
         </motion.div>
 
       </div>

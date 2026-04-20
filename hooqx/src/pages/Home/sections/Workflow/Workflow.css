@@ -1,70 +1,419 @@
-.workflow {
-  padding: 100px 24px;
-  background: #08080e;
-  color: #fff;
+/* ═══════════════════════════════════════
+   Workflow Section — Premium Animations
+═══════════════════════════════════════ */
+
+.wf-section {
+  position: relative;
+  padding: 7rem 1.5rem 5rem;
+  overflow: hidden;
+  isolation: isolate;
+  background: transparent;
 }
 
-.workflow__container {
-  max-width: 1200px;
+/* ── Floating particles ── */
+.wf-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #7c3aed;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: 0 0 6px 2px rgba(124, 58, 237, 0.4);
+}
+
+/* ── Watermark ── */
+.wf-watermark {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(5rem, 14vw, 11rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(124, 58, 237, 0.11);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  line-height: 1;
+}
+
+/* ── Decorative swirl ── */
+.wf-swirl {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(160px, 22vw, 280px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Container ── */
+.wf-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
-.workflow__header {
+/* ── Header ── */
+.wf-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 4.5rem;
 }
 
-.workflow__title {
-  font-size: 2.25rem;
-  font-weight: 800;
+.wf-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   color: #fff;
-  margin-bottom: 12px;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 0.38rem 1.2rem;
+  margin-bottom: 1.6rem;
 }
 
-.workflow__subtitle {
-  font-size: 1.05rem;
-  color: #aaa;
+/* Title — word-by-word clip reveal */
+.wf-title {
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: #fff;
+
+  /* shimmer sweep */
+  background: linear-gradient(
+    105deg,
+    #fff         0%,
+    #a78bfa      35%,
+    #fff         50%,
+    #fff         100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: wf-shimmer 5s linear infinite 1.5s;
 }
 
-.workflow__steps {
+@keyframes wf-shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* Overflow clip for each word so it slides up from behind */
+.wf-title-clip {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+/* ── Steps wrap ── */
+.wf-steps-wrap {
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+
+.wf-connector-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -62%);
+  width: 88%;
+  height: 90px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Steps grid ── */
+.wf-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  gap: 1.5rem;
   position: relative;
+  z-index: 1;
 }
 
-.workflow__step {
-  padding: 32px 24px;
-  position: relative;
+/* ── Single step card ── */
+.wf-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  gap: 1.25rem;
+
+  /* glass card base */
+  position: relative;
+  padding: 2.2rem 1.2rem 1.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: default;
+
+  transition:
+    transform        0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    background       0.42s ease,
+    border-color     0.42s ease,
+    box-shadow       0.42s ease;
 }
 
-.workflow__number {
-  display: block;
-  font-size: 3rem;
-  font-weight: 800;
-  color: #4f46e5;
-  margin-bottom: 16px;
+/* lift + border glow + depth shadow */
+.wf-step:hover {
+  transform: translateY(-12px);
+  background: rgba(124, 58, 237, 0.07);
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(124, 58, 237, 0.2),
+    0 0 50px rgba(124, 58, 237, 0.13);
 }
 
-.workflow__step-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.workflow__step-desc {
-  font-size: 0.9rem;
-  color: #aaa;
-  line-height: 1.65;
-}
-
-.workflow__connector {
+/* centred radial spotlight that appears on hover */
+.wf-step::before {
+  content: '';
   position: absolute;
-  top: 48px;
-  right: -1px;
-  width: 2px;
+  inset: 0;
+  border-radius: 24px;
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(124, 58, 237, 0.18) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wf-step:hover::before {
+  opacity: 1;
+}
+
+/* bottom-edge accent line that grows in on hover */
+.wf-step::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #7c3aed, #a78bfa, transparent);
+  border-radius: 2px;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wf-step:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* push icon and title above the spotlight layer */
+.wf-icon-wrap,
+.wf-step-title {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Icon area ── */
+.wf-icon-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+/* ── Icon box — solid bg so connector never bleeds through ── */
+.wf-icon-box {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #16131f;
+  border: 1px solid rgba(124, 58, 237, 0.22);
+  border-radius: 20px;
+  padding: 18px;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.35s, border-color 0.35s;
+}
+
+/* Spinning inner border ring — masked conic gradient inside the card */
+.wf-icon-box::before {
+  content: '';
+  position: absolute;
+  /* 2× the box so it fully covers when rotating */
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent   0deg,
+    #7c3aed      60deg,
+    #a78bfa      90deg,
+    transparent 150deg
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation: wf-spin 2.6s linear infinite;
+  /* punch a hole in the centre so only a ring is visible */
+  -webkit-mask: radial-gradient(circle at center, transparent 52%, black 56%);
+  mask:         radial-gradient(circle at center, transparent 52%, black 56%);
+}
+
+.wf-step:hover .wf-icon-box::before {
+  opacity: 1;
+}
+
+@keyframes wf-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.wf-step:hover .wf-icon-box {
+  background: #1e1630;
+  border-color: rgba(124, 58, 237, 0.5);
+}
+
+.wf-icon-box svg {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Number badge ── */
+.wf-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: wf-badge-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes wf-badge-pulse {
+  0%, 100% { box-shadow: 0 0 8px 2px rgba(124, 58, 237, 0.45); }
+  50%       { box-shadow: 0 0 18px 5px rgba(124, 58, 237, 0.7); }
+}
+
+/* ── Step label ── */
+.wf-step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e2e2e2;
+  letter-spacing: 0.01em;
+  transition: color 0.35s ease;
+}
+
+.wf-step:hover .wf-step-title {
+  color: #c4b5fd;
+}
+
+/* underline that slides out from center on hover */
+.wf-step-title::after {
+  content: '';
+  display: block;
+  margin: 5px auto 0;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wf-step:hover .wf-step-title::after {
+  transform: scaleX(1);
+}
+
+/* ── Divider ── */
+.wf-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(124, 58, 237, 0.35) 30%,
+    rgba(124, 58, 237, 0.35) 70%,
+    transparent
+  );
+  margin-bottom: 3rem;
+}
+
+/* ── Stats bar ── */
+.wf-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.wf-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  cursor: default;
+  transition: color 0.3s;
+}
+
+.wf-stat-icon {
+  flex-shrink: 0;
+  width: 40px;
   height: 40px;
-  background: #1a1a24;
+}
+
+.wf-stat-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wf-stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c4c4d4;
+  line-height: 1.45;
+  transition: color 0.3s;
+}
+
+.wf-stat:hover .wf-stat-label {
+  color: #e8e8f0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .wf-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+
+  .wf-connector-svg {
+    display: none;
+  }
+
+  .wf-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .wf-steps  { grid-template-columns: 1fr 1fr; }
+  .wf-stats  { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Reduced-motion: kill all decorative loops ── */
+@media (prefers-reduced-motion: reduce) {
+  .wf-title        { animation: none; background: none; -webkit-text-fill-color: #fff; }
+  .wf-badge        { animation: none; box-shadow: 0 0 10px rgba(124, 58, 237, 0.5); }
+  .wf-icon-box::before { display: none; }
 }
