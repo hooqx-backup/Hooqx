@@ -1,0 +1,198 @@
+/* ══════════════════════════════════════
+   CustomerVideos — premium video testimonials
+══════════════════════════════════════ */
+
+.cv-section {
+  position: relative;
+  padding: 7rem 1.5rem 6rem;
+  background: #080610;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ── Ambient orbs ── */
+.cv-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.15;
+}
+.cv-orb--tl {
+  width: 600px; height: 400px;
+  background: radial-gradient(circle, #7c3aed, transparent 70%);
+  top: -100px; left: -120px;
+}
+.cv-orb--br {
+  width: 500px; height: 350px;
+  background: radial-gradient(circle, #06b6d4, transparent 70%);
+  bottom: -80px; right: -80px;
+}
+
+/* ── Container ── */
+.cv-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.cv-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.cv-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #7c3aed, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.cv-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #f1f1f1;
+  margin-bottom: 1rem;
+}
+
+.cv-title-em {
+  font-style: normal;
+  background: linear-gradient(90deg, #7c3aed, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cv-subtitle {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ── 2 × 2 grid ── */
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── Video card ── */
+.cv-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #12101c;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ── Video element ── */
+.cv-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Dark gradient overlay ── */
+.cv-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top,  rgba(8,6,16,0.92) 0%, rgba(8,6,16,0.25) 45%, transparent 65%),
+    linear-gradient(to bottom, rgba(8,6,16,0.35) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+/* ── Bottom info bar ── */
+.cv-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.4rem 1.6rem;
+  z-index: 2;
+}
+
+.cv-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 0.45rem;
+}
+
+.cv-quote-hint {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.cv-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cv-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+
+.cv-name {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #a78bfa, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cv-role {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 1px;
+}
+
+
+/* ── Responsive ── */
+@media (max-width: 760px) {
+  .cv-grid { grid-template-columns: 1fr; }
+  .cv-card { aspect-ratio: 16 / 9; }
+}
+
+/* ── Reduced-motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .cv-video { animation: none; }
+}

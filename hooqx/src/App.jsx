@@ -1,14 +1,6 @@
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer'
-import HomePage from './pages/Home/HomePage'
-import './App.css'
-
+/* App.jsx is no longer the router root.
+   Routing is handled by src/router/index.jsx + src/layouts/RootLayout.jsx
+   This file is kept as a no-op for compatibility. */
 export default function App() {
-  return (
-    <>
-      <Navbar />
-      <HomePage />
-      <Footer />
-    </>
-  )
+  return null
 }

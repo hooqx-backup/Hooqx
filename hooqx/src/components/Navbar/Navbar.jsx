@@ -1,23 +1,36 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import hooqxfulllogo from '../../assets/images/hooqxfulllogo.png'
 import './Navbar.css'
 
 const navLinks = [
-  { label: 'Home', href: '/', hasDropdown: false },
+  { label: 'Home', to: '/', hasDropdown: false },
   {
-    label: 'Development', href: '/development', hasDropdown: true,
-    dropdown: ['Web Development Service', 'App Development Service', 'Software Development'],
+    label: 'Development', to: '/web-development', hasDropdown: true,
+    dropdown: [
+      { label: 'Web Development',  to: '/web-development' },
+      { label: 'App Development',  to: '/app-development' },
+      { label: 'Software Development', to: '/software-development' },
+    ],
   },
   {
-    label: 'Marketing', href: '/marketing', hasDropdown: true,
-    dropdown: ['Digital Marketing Service', 'Search Engine Optimization', 'Social Media Marketing', 'Performance Marketing'],
+    label: 'Marketing', to: '/marketing', hasDropdown: true,
+    dropdown: [
+      { label: 'Digital Marketing',     to: '/marketing' },
+      { label: 'Search Engine Optimization', to: '#' },
+      { label: 'Social Media Marketing',     to: '#' },
+      { label: 'Performance Marketing',      to: '#' },
+    ],
   },
   {
-    label: 'Design', href: '/design', hasDropdown: true,
-    dropdown: ['Graphic Design Service', 'UI/UX Design'],
+    label: 'Design', to: '/design', hasDropdown: true,
+    dropdown: [
+      { label: 'Graphic Design', to: '/design' },
+      { label: 'UI/UX Design',   to: '#' },
+    ],
   },
-  { label: 'About', href: '/about', hasDropdown: false },
-  { label: 'Contact', href: '/contact', hasDropdown: false },
+  { label: 'About',   to: '/about',   hasDropdown: false },
+  { label: 'Contact', to: '/contact', hasDropdown: false },
 ]
 
 export default function Navbar() {
@@ -26,6 +39,8 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null)
   const [mobileAccordion, setMobileAccordion] = useState(null)
   const navRef = useRef(null)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -48,6 +63,22 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
+  useEffect(() => {
+    if (pathname.startsWith('/web-development') || pathname.startsWith('/app-development') || pathname.startsWith('/software-development')) {
+      setMobileAccordion('Development')
+      return
+    }
+    if (pathname.startsWith('/marketing')) {
+      setMobileAccordion('Marketing')
+      return
+    }
+    if (pathname.startsWith('/design')) {
+      setMobileAccordion('Design')
+      return
+    }
+    setMobileAccordion(null)
+  }, [pathname])
+
   const closeMenu = () => {
     setMenuOpen(false)
     setMobileAccordion(null)
@@ -55,6 +86,11 @@ export default function Navbar() {
 
   const toggleDropdown = (label) => setOpenDropdown(prev => prev === label ? null : label)
   const toggleMobileAccordion = (label) => setMobileAccordion(prev => prev === label ? null : label)
+
+  const handleDropdownNav = (to) => {
+    setOpenDropdown(null)
+    if (to !== '#') navigate(to)
+  }
 
   return (
     <>
@@ -66,9 +102,10 @@ export default function Navbar() {
 
       <nav ref={navRef} className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
         <div className="navbar__container">
-          <a href="/" className="navbar__logo">
+
+          <Link to="/" className="navbar__logo">
             <img src={hooqxfulllogo} alt="Hooqx" />
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <ul className="navbar__links">
@@ -85,16 +122,36 @@ export default function Navbar() {
                     </button>
                     <div className={`navbar__dropdown${openDropdown === link.label ? ' navbar__dropdown--open' : ''}`}>
                       {link.dropdown.map((item) => (
-                        <a key={item} href="#" className="navbar__dropdown-item" onClick={() => setOpenDropdown(null)}>
-                          {item}
-                        </a>
+                        item.to === '#'
+                          ? (
+                            <span key={item.label} className="navbar__dropdown-item navbar__dropdown-item--soon">
+                              {item.label}
+                              <span className="navbar__dropdown-badge">Soon</span>
+                            </span>
+                          ) : (
+                            <NavLink
+                              key={item.label}
+                              to={item.to}
+                              className={({ isActive }) =>
+                                `navbar__dropdown-item${isActive ? ' navbar__dropdown-item--active' : ''}`
+                              }
+                              onClick={() => setOpenDropdown(null)}
+                            >
+                              {item.label}
+                            </NavLink>
+                          )
                       ))}
                     </div>
                   </>
                 ) : (
-                  <a href={link.href} className="navbar__link">
+                  <NavLink
+                    to={link.to}
+                    className={({ isActive }) =>
+                      `navbar__link${isActive ? ' navbar__link--active' : ''}`
+                    }
+                  >
                     {link.label}
-                  </a>
+                  </NavLink>
                 )}
               </li>
             ))}
@@ -109,7 +166,7 @@ export default function Navbar() {
             <span className="navbar__phone-number">+1 (470) 380-9098</span>
           </a>
 
-          <a href="/contact" className="navbar__cta navbar__cta--desktop">Let's Build</a>
+          <Link to="/contact" className="navbar__cta navbar__cta--desktop">Let's Build</Link>
 
           {/* Hamburger */}
           <button
@@ -129,9 +186,9 @@ export default function Navbar() {
       {/* Mobile slide-in panel */}
       <div className={`mobile-menu${menuOpen ? ' mobile-menu--open' : ''}`}>
         <div className="mobile-menu__header">
-          <a href="/" className="mobile-menu__logo" onClick={closeMenu}>
+          <Link to="/" className="mobile-menu__logo" onClick={closeMenu}>
             <img src={hooqxfulllogo} alt="Hooqx" />
-          </a>
+          </Link>
         </div>
 
         <nav className="mobile-menu__nav">
@@ -151,18 +208,40 @@ export default function Navbar() {
                   <div className={`mobile-menu__accordion${mobileAccordion === link.label ? ' mobile-menu__accordion--open' : ''}`}>
                     <div className="mobile-menu__accordion-inner">
                       {link.dropdown.map((item) => (
-                        <a key={item} href="#" className="mobile-menu__sub-item" onClick={closeMenu}>
-                          <span className="mobile-menu__sub-dot" />
-                          {item}
-                        </a>
+                        item.to === '#'
+                          ? (
+                            <span key={item.label} className="mobile-menu__sub-item mobile-menu__sub-item--soon">
+                              <span className="mobile-menu__sub-dot" />
+                              {item.label}
+                              <span className="navbar__dropdown-badge">Soon</span>
+                            </span>
+                          ) : (
+                            <NavLink
+                              key={item.label}
+                              to={item.to}
+                              className={({ isActive }) =>
+                                `mobile-menu__sub-item${isActive ? ' mobile-menu__sub-item--active' : ''}`
+                              }
+                              onClick={closeMenu}
+                            >
+                              <span className="mobile-menu__sub-dot" />
+                              {item.label}
+                            </NavLink>
+                          )
                       ))}
                     </div>
                   </div>
                 </>
               ) : (
-                <a href={link.href} className="mobile-menu__link" onClick={closeMenu}>
+                <NavLink
+                  to={link.to}
+                  className={({ isActive }) =>
+                    `mobile-menu__link${isActive ? ' mobile-menu__link--active' : ''}`
+                  }
+                  onClick={closeMenu}
+                >
                   <span>{link.label}</span>
-                </a>
+                </NavLink>
               )}
             </div>
           ))}
@@ -175,9 +254,9 @@ export default function Navbar() {
             </svg>
             +1 (470) 380-9098
           </a>
-          <a href="/contact" className="navbar__cta mobile-menu__cta" onClick={closeMenu}>
+          <Link to="/contact" className="navbar__cta mobile-menu__cta" onClick={closeMenu}>
             Let's Build
-          </a>
+          </Link>
         </div>
       </div>
     </>

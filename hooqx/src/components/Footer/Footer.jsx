@@ -282,13 +282,7 @@ export default function Footer() {
       </div>
 
       {/* ── Bottom bar ── */}
-      <motion.div
-        className="ft__bottom"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={vp}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
+      <div className="ft__bottom">
         <div className="ft__bottom-inner">
           <p className="ft__copy">Copyright © Hooqx LLC — All rights reserved.</p>
           <div className="ft__bottom-links">
@@ -299,7 +293,7 @@ export default function Footer() {
             <a href="#" className="ft__bottom-link">Cookie Policy</a>
           </div>
         </div>
-      </motion.div>
+      </div>
 
     </footer>
   )

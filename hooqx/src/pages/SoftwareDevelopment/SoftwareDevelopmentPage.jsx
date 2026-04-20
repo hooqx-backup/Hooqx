@@ -1,44 +1,49 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { vp } from '../../lib/motion'
-import heroBannerImg from '../../assets/images/websitedevelopmentbanner.jpg'
-import netGainsImg from '../../assets/images/websitedevelopment1.jpg'
-import whyImg from '../../assets/images/websitedevelopment2.jpg'
-import processImg from '../../assets/images/websitedevelopment3.jpg'
+import heroBannerImg from '../../assets/images/softwaredevelopment-banner.jpg'
+import netGainsImg from '../../assets/images/softwaredevelopment1.jpg'
+import whyImg from '../../assets/images/softwaredevelopment2.jpg'
+import processImg from '../../assets/images/softwaredevelopment3.jpg'
 import vid1 from '../../assets/videos/customer1.webm'
 import vid2 from '../../assets/videos/customer2.webm'
 import vid3 from '../../assets/videos/customer3.webm'
-import './DevelopmentPage.css'
+import '../Development/DevelopmentPage.css'
 
-/* ── Counter hook ── */
 function useCounter(target, duration = 2000) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
   const started = useRef(false)
+
   useEffect(() => {
     const el = ref.current
     if (!el) return
+
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting && !started.current) {
         started.current = true
         const t0 = Date.now()
+
         const tick = () => {
           const p = Math.min((Date.now() - t0) / duration, 1)
           setCount(Math.round((1 - Math.pow(1 - p, 3)) * target))
           if (p < 1) requestAnimationFrame(tick)
         }
+
         requestAnimationFrame(tick)
       }
     }, { threshold: 0.3 })
+
     obs.observe(el)
     return () => obs.disconnect()
   }, [target, duration])
+
   return [count, ref]
 }
 
-/* ── STATS: 3D coin-flip (rotateY) ── */
 function StatItem({ target, suffix, label, delay }) {
   const [count, ref] = useCounter(target)
+
   return (
     <motion.div
       className="wd-stat"
@@ -67,106 +72,107 @@ function Stars({ count = 5 }) {
 }
 
 const SERVICES = [
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>),
-    title: 'Custom Website Development',
-    desc: 'Tailor-made websites built from scratch to match your unique vision and business goals with scalable architecture.',
-  },
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.56L23 6H6" /></svg>),
-    title: 'E-commerce Website Development',
-    desc: 'Powerful online stores with seamless shopping experiences and conversion-optimised funnels.',
-  },
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>),
-    title: 'Responsive Website Design',
-    desc: 'Pixel-perfect designs that look and perform beautifully on every device and screen size.',
-  },
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="9" y1="21" x2="9" y2="9" /></svg>),
-    title: 'CMS Development',
-    desc: 'Custom content management solutions giving you full control of your digital content and assets.',
-  },
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" /></svg>),
-    title: 'Website Maintenance & Support',
-    desc: 'Ongoing support to keep your site secure, updated, and running at peak performance.',
-  },
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>),
-    title: 'Web Application Development',
-    desc: 'Complex, scalable web apps engineered for performance, reliability, and seamless user experience.',
-  },
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" /></svg>),
-    title: 'UI/UX Design & Development',
-    desc: 'Intuitive interfaces that delight users and drive meaningful engagement and conversions.',
-  },
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /><line x1="12" y1="2" x2="12" y2="22" /></svg>),
-    title: 'Front-end Development',
-    desc: 'Fast, accessible, pixel-perfect front-ends built with React, Next.js, and modern frameworks.',
-  },
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12" /><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" /></svg>),
-    title: 'Back-end Development',
-    desc: 'Robust server-side architecture with secure APIs and optimised database management systems.',
-  },
-  {
-    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" /></svg>),
-    title: 'API Integration Services',
-    desc: 'Seamlessly connect third-party services to extend and enhance your platform capabilities.',
-  },
+  'Custom Software Solutions',
+  'Mobile App Development',
+  'Web Application Development',
+  'E-commerce Development',
+  'API Integration',
+  'UX/UI Design',
+  'Cloud Solutions',
+  'Software Maintenance & Support',
+  'Database Design & Management',
+  'QA & Testing',
+  'DevOps Services',
+  'Blockchain Development',
+  'Artificial Intelligence & Machine Learning',
+  'Internet of Things (IoT) Solutions',
+  'Legacy System Modernization',
 ]
 
 const TESTIMONIALS = [
   {
-    name: 'Musa Al Jaber', role: 'Verified Customer', rating: 5, video: vid1,
+    name: 'Musa Al Jaber',
+    role: 'Verified Customer',
+    rating: 5,
+    video: vid1,
     quote: 'Hooqx is very good and respond back quickly, their SEO technique make my website come to the top of the search. Very nice service! I will recommend for sure.',
   },
   {
-    name: 'Daniel W.', role: 'Verified Customer', rating: 5, video: vid2,
+    name: 'Daniel W.',
+    role: 'Verified Customer',
+    rating: 5,
+    video: vid2,
     quote: "Hooqx flawlessly executed our digital campaign, seamlessly translating our brand's identity into success. Their attention to detail surpassed our goals, and we're eager to continue with them.",
   },
   {
-    name: 'Lisa Chen', role: 'Verified Customer', rating: 5, video: vid3,
-    quote: 'Hooqx shines in the digital crowd with their creativity and expertise. Their visually stunning websites and engaging social campaigns transformed our brand, setting them apart with dedication.',
+    name: 'Lisa Chen',
+    role: 'Verified Customer',
+    rating: 5,
+    video: vid3,
+    quote: 'Hooqx shines in the digital crowd with their creativity and expertise. Their visually stunning platforms and engaging digital journeys transformed our brand.',
   },
 ]
 
 const FAQS = [
-  { q: 'What services does Hooqx offer?', a: 'Hooqx specializes in a wide range of web development services including website design, front-end development, back-end development, e-commerce solutions, CMS development, web application development, and website maintenance.' },
-  { q: 'How experienced is the team at Hooqx?', a: 'Our team consists of seasoned professionals with over 5 years of combined experience delivering 500+ projects across diverse industries worldwide. Each project is handled by dedicated domain experts who bring precision and passion to every line of code.' },
-  { q: 'What technologies does Hooqx work with?', a: 'We work with modern technologies including React, Next.js, Node.js, Python, PHP, WordPress, Shopify, and many more — always selecting the best-fit stack for your specific project requirements and scalability goals.' },
-  { q: 'How long does it take to build a website?', a: 'Timelines vary by complexity. A standard website typically takes 2–4 weeks, while complex web applications may take 3–6 months. We provide a detailed project roadmap with clear milestones during our initial consultation.' },
-  { q: 'Do you provide website maintenance after launch?', a: 'Yes. We offer comprehensive maintenance and support packages to keep your website updated, secure, and performing optimally long after launch. Our team is available for ongoing improvements and emergency fixes.' },
-  { q: 'Can you redesign or upgrade my existing website?', a: 'Absolutely. We handle full redesigns, platform migrations, performance optimization, and feature additions for existing websites and web applications of any scale.' },
+  {
+    q: 'What kinds of software does Hooqx build?',
+    a: 'We build custom business platforms, SaaS products, enterprise software, automation tools, e-commerce systems, and integrated applications tailored to your workflow and growth goals.',
+  },
+  {
+    q: 'Can you modernize our legacy systems?',
+    a: 'Yes. We audit legacy architecture, map migration risks, and modernize your platform incrementally so operations continue smoothly while performance, security, and maintainability improve.',
+  },
+  {
+    q: 'Do you handle cloud deployment and DevOps?',
+    a: 'Absolutely. Our team sets up CI/CD pipelines, monitoring, infrastructure automation, and secure cloud environments to keep your software fast, stable, and scalable.',
+  },
+  {
+    q: 'How do you ensure software quality?',
+    a: 'Quality is built into every sprint with code reviews, test automation, performance checks, manual QA, and release validation to minimize defects and maximize reliability.',
+  },
+  {
+    q: 'Can Hooqx integrate APIs and third-party systems?',
+    a: 'Yes. We design robust API layers and connect payment gateways, CRMs, ERPs, analytics platforms, and other tools so your entire digital ecosystem works as one.',
+  },
+  {
+    q: 'Do you offer post-launch support?',
+    a: 'Yes. We provide continuous maintenance, feature evolution, security patches, and performance optimization after launch to keep your product future-ready.',
+  },
 ]
 
 const PROCESS = [
-  { num: '01', title: 'Discovery & Strategy', desc: 'We analyze your goals, audience, and competition to craft a data-driven digital roadmap that sets you up for success.' },
-  { num: '02', title: 'Design & Prototype', desc: 'Our designers build stunning wireframes and interactive prototypes perfectly aligned with your brand identity.' },
-  { num: '03', title: 'Build & Test', desc: 'Precision engineering with rigorous QA testing ensures a fast, secure, and production-ready product every time.' },
-  { num: '04', title: 'Launch & Scale', desc: 'We deploy, monitor, and continuously optimize for performance, growth, and seamless feature delivery.' },
+  {
+    num: '01',
+    title: 'Discovery & Product Blueprint',
+    desc: 'We translate your goals into a clear architecture, feature roadmap, and technical strategy with measurable outcomes.',
+  },
+  {
+    num: '02',
+    title: 'UX, Flows & System Design',
+    desc: 'From user journeys to database planning, we craft intuitive experiences and robust foundations before development begins.',
+  },
+  {
+    num: '03',
+    title: 'Agile Build, Test & Integrate',
+    desc: 'We develop in focused sprints, run continuous QA, and integrate critical services to deliver reliable software faster.',
+  },
+  {
+    num: '04',
+    title: 'Launch, Scale & Evolve',
+    desc: 'After release, we monitor usage, optimize performance, and continuously ship enhancements as your business grows.',
+  },
 ]
 
-export default function DevelopmentPage() {
+export default function SoftwareDevelopmentPage() {
   const [openFaq, setOpenFaq] = useState(null)
   const heroRef = useRef(null)
 
-  /* ── HERO: useScroll parallax for background ── */
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const heroBgY = useTransform(scrollYProgress, [0, 1], ['0%', '28%'])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
 
   return (
     <main className="wd">
-
-      {/* ══════════════════════════════════════
-          HERO — parallax scroll + stagger reveal
-          Unique: useScroll/useTransform parallax bg,
-          content staggered upward, code card 3D slide-in
-      ══════════════════════════════════════ */}
       <section className="wd-hero" ref={heroRef}>
         <motion.div
           className="wd-hero__bg"
@@ -183,7 +189,6 @@ export default function DevelopmentPage() {
         </div>
 
         <motion.div className="wd-hero__inner" style={{ opacity: heroOpacity }}>
-          {/* Left: stagger children upward */}
           <motion.div
             className="wd-hero__content"
             initial="hidden"
@@ -194,21 +199,22 @@ export default function DevelopmentPage() {
               className="wd-eyebrow"
               variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}
             >
-              <span className="wd-eyebrow__line" />Web Development Services
+              <span className="wd-eyebrow__line" />Software Development Services
             </motion.p>
             <motion.h1
               className="wd-hero__title"
               variants={{ hidden: { opacity: 0, y: 36, filter: 'blur(10px)' }, show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } } }}
             >
-              Turning Your Digital<br />
-              <span className="wd-grad-text">Dreams Into Reality</span>
+              Crafting Powerful Software<br />
+              <span className="wd-grad-text">That Hooks Users</span>
             </motion.h1>
             <motion.p
               className="wd-hero__sub"
               variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } } }}
             >
-              Our web development team is dedicated to crafting scalable, efficient, and future-proof solutions.
-              We don't just write code — we build digital experiences that elevate your business.
+              At Hooqx, we believe software development is not just writing code. It is about
+              crafting experiences where every feature becomes a meaningful connection between
+              your brand and your audience.
             </motion.p>
             <motion.div
               className="wd-hero__cta"
@@ -219,7 +225,6 @@ export default function DevelopmentPage() {
             </motion.div>
           </motion.div>
 
-          {/* Right: 3D perspective slide-in */}
           <motion.div
             className="wd-hero__visual"
             initial={{ opacity: 0, x: 80, rotateY: -14 }}
@@ -232,15 +237,13 @@ export default function DevelopmentPage() {
                 <span className="wd-code-card__dot wd-code-card__dot--r" />
                 <span className="wd-code-card__dot wd-code-card__dot--y" />
                 <span className="wd-code-card__dot wd-code-card__dot--g" />
-                <span className="wd-code-card__file">hooqx.config.js</span>
+                <span className="wd-code-card__file">software.hooqx.js</span>
               </div>
-              <pre className="wd-code-card__code"><span className="wd-c-kw">const</span> hooqx = {`{`}
-  mission: <span className="wd-c-str">"Build the future"</span>,
-  stack: [<span className="wd-c-str">"React"</span>, <span className="wd-c-str">"Node.js"</span>,
-          <span className="wd-c-str">"Python"</span>, <span className="wd-c-str">"AWS"</span>],
-  guarantee: <span className="wd-c-str">"100% Satisfaction"</span>,
-  delivery:  <span className="wd-c-str">"On time, every time"</span>,
-  clients:   <span className="wd-c-num">200</span><span className="wd-c-str">+</span>,
+              <pre className="wd-code-card__code"><span className="wd-c-kw">const</span> software = {`{`}
+  approach: <span className="wd-c-str">"Experience-first engineering"</span>,
+  outcomes: [<span className="wd-c-str">"Scale"</span>, <span className="wd-c-str">"Speed"</span>, <span className="wd-c-str">"Reliability"</span>],
+  quality: <span className="wd-c-str">"QA + DevOps + Support"</span>,
+  delivery: <span className="wd-c-str">"Built for growth"</span>
 {`}`}</pre>
             </div>
             <motion.div
@@ -252,7 +255,7 @@ export default function DevelopmentPage() {
               <svg viewBox="0 0 20 20" fill="#34d399" width="18" height="18">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>500+ Projects Delivered</span>
+              <span>Experience-Driven Builds</span>
             </motion.div>
             <motion.div
               className="wd-hero__badge wd-hero__badge--2"
@@ -263,7 +266,7 @@ export default function DevelopmentPage() {
               <svg viewBox="0 0 20 20" fill="#f59e0b" width="18" height="18">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <span>5-Star Rated Agency</span>
+              <span>Built to Delight & Retain</span>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -274,26 +277,17 @@ export default function DevelopmentPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          STATS — 3D rotateY coin-flip
-          Unique: each card flips in on Y-axis like a coin
-      ══════════════════════════════════════ */}
       <section className="wd-stats">
         <div className="wd-stats__inner">
           <StatItem target={500} suffix="+" label="Projects Delivered" delay={0} />
-          <StatItem target={200} suffix="+" label="Happy Clients"       delay={0.12} />
-          <StatItem target={5}   suffix="+" label="Years Experience"    delay={0.24} />
-          <StatItem target={99}  suffix="%" label="Client Satisfaction" delay={0.36} />
+          <StatItem target={200} suffix="+" label="Happy Clients" delay={0.12} />
+          <StatItem target={15} suffix="+" label="Service Verticals" delay={0.24} />
+          <StatItem target={99} suffix="%" label="Client Satisfaction" delay={0.36} />
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          NET GAINS — diagonal skew slide (text) + 3D rotateY (image)
-          Unique: text items skew-slide from left, image does perspective Y-axis reveal
-      ══════════════════════════════════════ */}
       <section className="wd-netgains">
         <div className="wd-netgains__inner">
-          {/* Text: stagger with skew-slide */}
           <motion.div
             className="wd-netgains__text"
             initial="hidden"
@@ -305,33 +299,31 @@ export default function DevelopmentPage() {
               className="wd-eyebrow"
               variants={{ hidden: { opacity: 0, x: -40, skewX: -10 }, show: { opacity: 1, x: 0, skewX: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } } }}
             >
-              <span className="wd-eyebrow__line" />Why It Matters
+              <span className="wd-eyebrow__line" />Hooqx Hacks
             </motion.p>
             <motion.h2
               className="wd-section-title"
               variants={{ hidden: { opacity: 0, x: -50, skewX: -8 }, show: { opacity: 1, x: 0, skewX: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } }}
             >
-              Net Gains: The Importance of<br />
-              <span className="wd-grad-text">Web Development</span><br />
-              in the Digital Age
+              Why Software Development is the<br />
+              <span className="wd-grad-text">Real MVP</span>
             </motion.h2>
             <motion.p
               className="wd-section-body"
               variants={{ hidden: { opacity: 0, x: -40, skewX: -6 }, show: { opacity: 1, x: 0, skewX: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } } }}
             >
-              Investing in web development is crucial now more than ever. An optimized and visually
-              captivating online presence is the key to standing out in today's competitive digital
-              landscape and capturing your audience's attention.
+              In a digital world filled with competition, the right software is your secret bait for
+              success. At Hooqx, we create tools that hook your audience and keep them coming back.
             </motion.p>
             <motion.div
               className="wd-bullets"
               variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
             >
               {[
-                'Dominate search rankings with performance-optimised code',
-                'Convert visitors into loyal customers with seamless UX',
-                'Scale effortlessly as your business grows globally',
-                'Stay ahead with cutting-edge technology and innovation',
+                'Reel in efficiency with software built around your workflows',
+                'Hook users with intuitive journeys and frictionless interactions',
+                'Scale with confidence through cloud-ready architecture',
+                'Deliver innovation that drives measurable growth',
               ].map((b, i) => (
                 <motion.div
                   key={i}
@@ -349,7 +341,6 @@ export default function DevelopmentPage() {
             </motion.div>
           </motion.div>
 
-          {/* Image: 3D rotateY perspective reveal */}
           <motion.div
             className="wd-netgains__image"
             initial={{ opacity: 0, rotateY: -18, scale: 0.88 }}
@@ -358,7 +349,7 @@ export default function DevelopmentPage() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             style={{ transformPerspective: 900 }}
           >
-            <img src={netGainsImg} alt="Web development importance" />
+            <img src={netGainsImg} alt="Software development outcomes" />
             <div className="wd-netgains__glow" />
             <motion.div
               className="wd-netgains__badge"
@@ -367,24 +358,19 @@ export default function DevelopmentPage() {
               viewport={vp}
               transition={{ delay: 0.5, type: 'spring', stiffness: 280, damping: 20 }}
             >
-              <span className="wd-netgains__badge-emoji">🚀</span>
+              <span className="wd-netgains__badge-emoji">MVP</span>
               <div>
-                <div className="wd-netgains__badge-num">3×</div>
-                <div className="wd-netgains__badge-label">Faster Growth</div>
+                <div className="wd-netgains__badge-num">High</div>
+                <div className="wd-netgains__badge-label">Business Impact</div>
               </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          SERVICES — zigzag alternating left/right + whileHover scale
-          Unique: even cards slide from left, odd from right; spring bounce
-      ══════════════════════════════════════ */}
       <section className="wd-services" id="services">
         <div className="wd-services__blob" />
         <div className="wd-services__inner">
-          {/* Header: drop from top */}
           <motion.div
             className="wd-services__header"
             initial={{ opacity: 0, y: -44 }}
@@ -395,14 +381,14 @@ export default function DevelopmentPage() {
             <p className="wd-eyebrow"><span className="wd-eyebrow__line" />What We Offer</p>
             <h2 className="wd-section-title">Services <span className="wd-grad-text">Included</span></h2>
             <p className="wd-section-body wd-section-body--center">
-              A full spectrum of web development services crafted to elevate your digital presence.
+              Team Hooqx does not just build software. We engineer experiences from pixels to profit.
             </p>
           </motion.div>
 
           <div className="wd-services__grid">
-            {SERVICES.map((s, i) => (
+            {SERVICES.map((title, i) => (
               <motion.div
-                key={i}
+                key={title}
                 className="wd-service-card"
                 initial={{ opacity: 0, x: i % 2 === 0 ? -70 : 70 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -411,10 +397,15 @@ export default function DevelopmentPage() {
                 whileHover={{ scale: 1.025, y: -5, transition: { type: 'spring', stiffness: 300, damping: 18 } }}
                 whileTap={{ scale: 0.97 }}
               >
-                <div className="wd-service-card__icon">{s.icon}</div>
+                <div className="wd-service-card__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                </div>
                 <div className="wd-service-card__body">
-                  <h3 className="wd-service-card__title">{s.title}</h3>
-                  <p className="wd-service-card__desc">{s.desc}</p>
+                  <h3 className="wd-service-card__title">{title}</h3>
+                  <p className="wd-service-card__desc">Built with a strategy-first approach tailored to your product goals.</p>
                 </div>
                 <div className="wd-service-card__arrow">
                   <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
@@ -428,13 +419,8 @@ export default function DevelopmentPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          WHY HOOQX — rotate+scale (image) + cascade spring from right (features)
-          Unique: image rotates in from slight tilt, features bounce in from right with spring
-      ══════════════════════════════════════ */}
       <section className="wd-why">
         <div className="wd-why__inner">
-          {/* Image: rotate + scale entrance */}
           <motion.div
             className="wd-why__image"
             initial={{ opacity: 0, scale: 0.82, rotate: -5 }}
@@ -442,7 +428,7 @@ export default function DevelopmentPage() {
             viewport={vp}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <img src={whyImg} alt="Why Hooqx for web development" />
+            <img src={whyImg} alt="Software development at Hooqx" />
             <div className="wd-why__img-border" />
             <motion.div
               className="wd-why__img-pill"
@@ -454,11 +440,10 @@ export default function DevelopmentPage() {
               <svg viewBox="0 0 20 20" fill="#7c3aed" width="16" height="16">
                 <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
               </svg>
-              <span>200+ Happy Clients</span>
+              <span>Built by Tech-Savvy Enthusiasts</span>
             </motion.div>
           </motion.div>
 
-          {/* Text: elements slide from right with spring */}
           <div className="wd-why__text">
             <motion.p
               className="wd-eyebrow"
@@ -467,7 +452,7 @@ export default function DevelopmentPage() {
               viewport={vp}
               transition={{ type: 'spring', stiffness: 200, damping: 24 }}
             >
-              <span className="wd-eyebrow__line" />Our Advantage
+              <span className="wd-eyebrow__line" />From Pixels to Profit
             </motion.p>
             <motion.h2
               className="wd-section-title"
@@ -476,8 +461,8 @@ export default function DevelopmentPage() {
               viewport={vp}
               transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              Why Hooqx is Your<br />
-              <span className="wd-grad-text">Best Catch</span> for Web Dev
+              The Magic of <span className="wd-grad-text">Software Development</span><br />
+              at Hooqx
             </motion.h2>
             <motion.p
               className="wd-section-body"
@@ -486,16 +471,15 @@ export default function DevelopmentPage() {
               viewport={vp}
               transition={{ type: 'spring', stiffness: 180, damping: 22, delay: 0.15 }}
             >
-              We stand out by seamlessly blending innovation, functionality, and user-centric design —
-              ensuring your digital footprint not only meets industry standards but exceeds expectations,
-              delivering an unparalleled online experience for your audience.
+              We engineer experiences that hook users from the first click. With creativity, precision,
+              and a strong innovation mindset, your digital product does not just stay afloat. It sails.
             </motion.p>
             <div className="wd-why__features">
               {[
-                { label: 'Innovation-First Approach', desc: 'Cutting-edge tech stacks that outperform and outpace competitors.' },
-                { label: 'User-Centric Design', desc: 'Every pixel serves a purpose — built around real user needs and behaviours.' },
-                { label: 'Scalable Architecture', desc: 'Future-proof systems that grow seamlessly alongside your business.' },
-                { label: 'Dedicated Ongoing Support', desc: 'A committed team behind your product from discovery to post-launch.' },
+                { label: 'Creativity Meets Precision', desc: 'Every solution balances elegant design with strong engineering rigor.' },
+                { label: 'Innovation-Driven Culture', desc: 'We continuously adopt practical new technologies that deliver impact.' },
+                { label: 'Performance-Focused Delivery', desc: 'Fast, stable, and scalable software tuned for real-world usage.' },
+                { label: 'Partnership Beyond Launch', desc: 'From roadmap to support, we stay invested in your long-term growth.' },
               ].map((f, i) => (
                 <motion.div
                   key={i}
@@ -533,13 +517,8 @@ export default function DevelopmentPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          PROCESS — alternating left/right steps (spring) + y-rise + tilt image
-          Unique: odd steps slide from left, even from right; image rises with slight rotation
-      ══════════════════════════════════════ */}
       <section className="wd-process">
         <div className="wd-process__inner">
-          {/* Header: zoom-blur from centre */}
           <motion.div
             className="wd-process__header"
             initial={{ opacity: 0, scale: 0.88, filter: 'blur(10px)' }}
@@ -570,7 +549,6 @@ export default function DevelopmentPage() {
                 </motion.div>
               ))}
             </div>
-            {/* Image: rise from below with tilt */}
             <motion.div
               className="wd-process__image"
               initial={{ opacity: 0, y: 80, rotate: 3 }}
@@ -578,22 +556,17 @@ export default function DevelopmentPage() {
               viewport={vp}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <img src={processImg} alt="Our development process" />
+              <img src={processImg} alt="Software development process" />
               <div className="wd-process__image-glow" />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          TESTIMONIALS — 3D rotateX flip from above (like cards dealt on a table)
-          Unique: cards flip in along X-axis with perspective, header does scale+blur
-      ══════════════════════════════════════ */}
       <section className="wd-testi">
         <div className="wd-testi__blob wd-testi__blob--1" />
         <div className="wd-testi__blob wd-testi__blob--2" />
         <div className="wd-testi__inner">
-          {/* Header: scale + blur zoom-in */}
           <motion.div
             className="wd-testi__header"
             initial={{ opacity: 0, scale: 0.78, filter: 'blur(14px)' }}
@@ -606,7 +579,6 @@ export default function DevelopmentPage() {
             <p className="wd-section-body wd-section-body--center">Real results. Real people. Real satisfaction.</p>
           </motion.div>
 
-          {/* Cards: rotateX flip from above */}
           <div className="wd-testi__grid">
             {TESTIMONIALS.map((t, i) => (
               <motion.div
@@ -642,13 +614,8 @@ export default function DevelopmentPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          FAQ — diagonal skewY slide-in per item
-          Unique: items slide from left with vertical skew, unskew on arrival
-      ══════════════════════════════════════ */}
       <section className="wd-faq">
         <div className="wd-faq__inner">
-          {/* Header: y drop from top */}
           <motion.div
             className="wd-faq__header"
             initial={{ opacity: 0, y: -40 }}
@@ -704,10 +671,6 @@ export default function DevelopmentPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          CTA — dramatic zoom-blur entrance for whole block
-          Unique: entire inner block scales up from 0.82 with blur dissolve
-      ══════════════════════════════════════ */}
       <section className="wd-cta">
         <div className="wd-cta__blob" />
         <div className="wd-cta__grid" />
@@ -719,11 +682,10 @@ export default function DevelopmentPage() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2 className="wd-cta__title">
-            Ready to Build Something{' '}
-            <span className="wd-grad-text">Extraordinary?</span>
+            Ready to Build Software That <span className="wd-grad-text">Hooks and Scales?</span>
           </h2>
           <p className="wd-cta__sub">
-            Let's elevate your online capabilities and redefine what's possible together.
+            Dive in with Hooqx where software excellence is not just a goal, it is our favorite catch.
           </p>
           <motion.div
             className="wd-cta__btns"
@@ -751,7 +713,6 @@ export default function DevelopmentPage() {
           </motion.div>
         </motion.div>
       </section>
-
     </main>
   )
 }
