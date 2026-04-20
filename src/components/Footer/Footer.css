@@ -203,7 +203,7 @@
   gap: 9px;
   padding: 6px 0;
   font-size: 0.855rem;
-  color: rgba(210, 205, 240, 0.85);
+  color: rgba(190, 185, 220, 0.65);
   text-decoration: none;
   transition: color 0.25s ease, gap 0.25s ease;
 }
@@ -234,7 +234,7 @@
   align-items: flex-start;
   gap: 9px;
   font-size: 0.825rem;
-  color: rgba(210, 205, 240, 0.85);
+  color: rgba(190, 185, 220, 0.65);
   line-height: 1.6;
   text-decoration: none;
 }
@@ -262,7 +262,7 @@
 ══════════════════════════════ */
 .ft__nl-desc {
   font-size: 0.855rem;
-  color: rgba(210, 205, 240, 0.85);
+  color: rgba(190, 185, 220, 0.65);
   line-height: 1.75;
   margin: 0 0 22px;
 }
@@ -348,9 +348,8 @@
 .ft__bottom {
   position: relative;
   z-index: 2;
-  border-top: 1px solid rgba(120, 60, 220, 0.25);
-  padding: 12px 24px;
-  background: rgba(6, 6, 16, 0.85);
+  border-top: 1px solid rgba(120, 60, 220, 0.12);
+  padding: 20px 24px;
 }
 .ft__bottom-inner {
   max-width: 1240px;
@@ -364,7 +363,7 @@
 
 .ft__copy {
   font-size: 0.78rem;
-  color: rgba(210, 205, 255, 0.9);
+  color: rgba(160, 155, 200, 0.5);
   margin: 0;
 }
 
@@ -375,7 +374,7 @@
 }
 .ft__bottom-link {
   font-size: 0.75rem;
-  color: rgba(210, 205, 255, 0.9);
+  color: rgba(160, 155, 200, 0.5);
   text-decoration: none;
   transition: color 0.25s;
 }

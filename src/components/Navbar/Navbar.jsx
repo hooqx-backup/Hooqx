@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import hooqxfulllogo from '../../assets/images/hooqxfulllogo.png'
 import './Navbar.css'
 
@@ -26,6 +27,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null)
   const [mobileAccordion, setMobileAccordion] = useState(null)
   const navRef = useRef(null)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -66,9 +68,9 @@ export default function Navbar() {
 
       <nav ref={navRef} className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
         <div className="navbar__container">
-          <a href="/" className="navbar__logo">
+          <Link to="/" className="navbar__logo">
             <img src={hooqxfulllogo} alt="Hooqx" />
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <ul className="navbar__links">
@@ -92,9 +94,12 @@ export default function Navbar() {
                     </div>
                   </>
                 ) : (
-                  <a href={link.href} className="navbar__link">
+                  <Link
+                    to={link.href}
+                    className={`navbar__link${location.pathname === link.href ? ' navbar__link--active' : ''}`}
+                  >
                     {link.label}
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}
@@ -109,7 +114,7 @@ export default function Navbar() {
             <span className="navbar__phone-number">+1 (470) 380-9098</span>
           </a>
 
-          <a href="/contact" className="navbar__cta navbar__cta--desktop">Let's Build</a>
+          <Link to="/contact" className="navbar__cta navbar__cta--desktop">Let's Build</Link>
 
           {/* Hamburger */}
           <button
@@ -129,9 +134,9 @@ export default function Navbar() {
       {/* Mobile slide-in panel */}
       <div className={`mobile-menu${menuOpen ? ' mobile-menu--open' : ''}`}>
         <div className="mobile-menu__header">
-          <a href="/" className="mobile-menu__logo" onClick={closeMenu}>
+          <Link to="/" className="mobile-menu__logo" onClick={closeMenu}>
             <img src={hooqxfulllogo} alt="Hooqx" />
-          </a>
+          </Link>
         </div>
 
         <nav className="mobile-menu__nav">
@@ -160,9 +165,9 @@ export default function Navbar() {
                   </div>
                 </>
               ) : (
-                <a href={link.href} className="mobile-menu__link" onClick={closeMenu}>
+                <Link to={link.href} className="mobile-menu__link" onClick={closeMenu}>
                   <span>{link.label}</span>
-                </a>
+                </Link>
               )}
             </div>
           ))}
@@ -175,9 +180,9 @@ export default function Navbar() {
             </svg>
             +1 (470) 380-9098
           </a>
-          <a href="/contact" className="navbar__cta mobile-menu__cta" onClick={closeMenu}>
+          <Link to="/contact" className="navbar__cta mobile-menu__cta" onClick={closeMenu}>
             Let's Build
-          </a>
+          </Link>
         </div>
       </div>
     </>
