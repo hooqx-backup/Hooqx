@@ -1,0 +1,93 @@
+.cnt-hero {
+  position: relative;
+  padding: 140px 24px 100px;
+  text-align: center;
+  overflow: hidden;
+  background: #0a0a14;
+}
+
+.cnt-hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 0;
+}
+.cnt-hero__blob--left {
+  width: 600px; height: 600px;
+  top: -200px; left: -250px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+}
+.cnt-hero__blob--right {
+  width: 500px; height: 500px;
+  top: -100px; right: -200px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, transparent 70%);
+}
+
+.cnt-hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cnt-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.cnt-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 24px;
+}
+
+.cnt-hero__eyebrow-line {
+  display: block;
+  width: 28px; height: 2px;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  flex-shrink: 0;
+}
+
+.cnt-hero__heading {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  color: #f0f0ff;
+}
+
+.cnt-hero__heading span {
+  background: linear-gradient(90deg, #a855f7, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cnt-hero__desc {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(200, 200, 230, 0.7);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .cnt-hero { padding: 100px 16px 70px; }
+}

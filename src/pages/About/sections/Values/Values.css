@@ -1,0 +1,111 @@
+.abt-values {
+  position: relative;
+  padding: 110px 24px 100px;
+  background: linear-gradient(180deg, #0f0f1e 0%, #0a0a14 100%);
+}
+
+.abt-values__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.abt-values__header { margin-bottom: 70px; }
+
+.abt-values__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 22px;
+}
+
+.abt-values__eyebrow-line {
+  display: block;
+  width: 28px; height: 1px;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  flex-shrink: 0;
+}
+
+.abt-values__heading {
+  font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #f0f0ff;
+}
+
+.abt-values__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.abt-values__card {
+  padding: 40px 32px;
+  border-radius: 14px;
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.35s ease, background 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.abt-values__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.abt-values__card:hover { border-color: rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.08); }
+.abt-values__card:hover::before { opacity: 1; }
+
+.abt-values__icon {
+  width: 56px; height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(0, 229, 255, 0.1) 100%);
+  color: #a855f7;
+  margin-bottom: 20px;
+  transition: all 0.35s ease;
+}
+
+.abt-values__card:hover .abt-values__icon {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(0, 229, 255, 0.2) 100%);
+  transform: scale(1.1);
+}
+
+.abt-values__card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #f0f0ff;
+}
+
+.abt-values__card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(200, 200, 230, 0.65);
+}
+
+@media (max-width: 968px) {
+  .abt-values__grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .abt-values { padding: 80px 16px 70px; }
+  .abt-values__grid { grid-template-columns: 1fr; gap: 24px; }
+}

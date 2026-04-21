@@ -1,0 +1,199 @@
+.abt-team {
+  position: relative;
+  padding: 110px 24px 100px;
+  background: linear-gradient(180deg, #0f0f1e 0%, #0a0a14 100%);
+}
+
+.abt-team__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.abt-team__header { margin-bottom: 70px; }
+
+.abt-team__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 22px;
+}
+
+.abt-team__eyebrow-line {
+  display: block;
+  width: 28px; height: 1px;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  flex-shrink: 0;
+}
+
+.abt-team__heading {
+  font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  color: #f0f0ff;
+}
+
+.abt-team__desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(200, 200, 230, 0.65);
+  max-width: 560px;
+}
+
+.abt-team__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.abt-team__card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.35s ease, background 0.35s ease;
+  cursor: default;
+}
+
+.abt-team__card:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  background: rgba(168, 85, 247, 0.06);
+}
+
+.abt-team__img-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.abt-team__img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.abt-team__card:hover .abt-team__img-wrap img { transform: scale(1.05); }
+
+.abt-team__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 5, 30, 0.5) 0%, transparent 60%);
+}
+
+.abt-team__info { padding: 24px 28px; }
+
+.abt-team__info h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f0f0ff;
+  margin-bottom: 6px;
+}
+
+.abt-team__info span {
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.abt-team__socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.abt-team__social {
+  width: 34px; height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  background: rgba(168, 85, 247, 0.07);
+  color: #a78bfa;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.abt-team__social:hover {
+  border-color: rgba(168, 85, 247, 0.55);
+  background: rgba(168, 85, 247, 0.18);
+  color: #c4b5fd;
+  transform: translateY(-2px);
+}
+
+/* Join card */
+.abt-team__card--join {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.06) 0%, rgba(0, 229, 255, 0.03) 100%);
+  border-style: dashed;
+  border-color: rgba(168, 85, 247, 0.25);
+}
+
+.abt-team__card--join:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%);
+}
+
+.abt-team__join-inner {
+  text-align: center;
+  padding: 40px 32px;
+}
+
+.abt-team__join-icon {
+  width: 72px; height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(0, 229, 255, 0.1));
+  color: #a855f7;
+  margin: 0 auto 20px;
+}
+
+.abt-team__join-inner h3 { font-size: 1.3rem; font-weight: 700; color: #f0f0ff; margin-bottom: 12px; }
+.abt-team__join-inner p { font-size: 0.93rem; line-height: 1.7; color: rgba(200, 200, 230, 0.6); margin-bottom: 24px; }
+
+.abt-team__join-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white;
+  box-shadow: 0 6px 24px rgba(168, 85, 247, 0.3);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.abt-team__join-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 36px rgba(168, 85, 247, 0.4);
+}
+
+@media (max-width: 968px) { .abt-team__grid { grid-template-columns: 1fr 1fr; } }
+
+@media (max-width: 640px) {
+  .abt-team { padding: 80px 16px 70px; }
+  .abt-team__grid { grid-template-columns: 1fr; }
+}
