@@ -1,0 +1,103 @@
+.cnt-partners {
+  position: relative;
+  padding: 100px 24px 110px;
+  background: linear-gradient(180deg, #0f0f1e 0%, #0a0a14 100%);
+}
+
+.cnt-partners__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cnt-partners__header { margin-bottom: 60px; }
+
+.cnt-partners__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+}
+
+.cnt-partners__eyebrow-line {
+  display: block;
+  width: 28px; height: 1px;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  flex-shrink: 0;
+}
+
+.cnt-partners__heading {
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  color: #f0f0ff;
+}
+
+.cnt-partners__desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(200, 200, 230, 0.6);
+  max-width: 600px;
+}
+
+.cnt-partners__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.cnt-partners__card {
+  padding: 40px 32px;
+  border-radius: 14px;
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.35s ease, background 0.35s ease;
+  cursor: default;
+}
+
+.cnt-partners__card:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  background: rgba(168, 85, 247, 0.07);
+}
+
+.cnt-partners__flag {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.cnt-partners__card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cnt-partners__card p {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: rgba(200, 200, 230, 0.6);
+}
+
+@media (max-width: 968px) {
+  .cnt-partners__grid { grid-template-columns: 1fr 1fr; }
+  .cnt-partners__grid > *:last-child { grid-column: span 2; max-width: 400px; }
+}
+
+@media (max-width: 640px) {
+  .cnt-partners { padding: 80px 16px 90px; }
+  .cnt-partners__grid { grid-template-columns: 1fr; }
+  .cnt-partners__grid > *:last-child { grid-column: auto; max-width: 100%; }
+}

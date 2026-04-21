@@ -1,0 +1,201 @@
+.abt-features {
+  position: relative;
+  padding: 0 24px;
+  background: #0a0a14;
+  overflow: hidden;
+}
+
+.abt-features__ambient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 50%, rgba(168,85,247,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 50%, rgba(0,229,255,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.abt-features__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.abt-features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  padding: 60px 0 80px;
+  border-top: 1px solid rgba(168, 85, 247, 0.1);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+}
+
+/* ── Card ── */
+.abt-features__card {
+  position: relative;
+  padding: 40px 32px 36px;
+  border-radius: 16px;
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  background: rgba(255, 255, 255, 0.022);
+  backdrop-filter: blur(12px);
+  cursor: default;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+.abt-features__card:hover {
+  border-color: rgba(168, 85, 247, 0.35);
+  background: rgba(168, 85, 247, 0.04);
+}
+
+/* Cursor-tracking radial glow */
+.abt-features__cursor-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.05s linear;
+}
+
+/* Entrance scan line */
+.abt-features__scan {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  width: 2px;
+  transform-origin: top;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Corner brackets */
+.abt-features__corner {
+  position: absolute;
+  width: 14px; height: 14px;
+  border-style: solid;
+  border-color: rgba(168,85,247,0.4);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.abt-features__card:hover .abt-features__corner { opacity: 1; }
+
+.abt-features__corner--tl {
+  top: 10px; left: 10px;
+  border-width: 2px 0 0 2px;
+}
+.abt-features__corner--br {
+  bottom: 10px; right: 10px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Tag pill */
+.abt-features__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.75;
+  background: rgba(0,0,0,0.2);
+}
+.abt-features__tag-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: tagPulse 2s ease-in-out infinite;
+}
+@keyframes tagPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* Icon */
+.abt-features__icon {
+  position: relative;
+  z-index: 2;
+  width: 58px; height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid rgba(168,85,247,0.2);
+  margin-bottom: 22px;
+  will-change: transform, box-shadow;
+}
+
+/* Title */
+.abt-features__title {
+  position: relative;
+  z-index: 2;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #f0f0ff;
+  letter-spacing: -0.01em;
+}
+
+/* Desc */
+.abt-features__desc {
+  position: relative;
+  z-index: 2;
+  font-size: 0.93rem;
+  line-height: 1.8;
+  color: rgba(200,200,230,0.62);
+  margin-bottom: 28px;
+}
+
+/* Metric */
+.abt-features__metric {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(168,85,247,0.1);
+}
+.abt-features__metric-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  will-change: transform;
+}
+.abt-features__metric-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(200,200,230,0.45);
+}
+
+/* Bottom glow border */
+.abt-features__border-glow {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  transform-origin: left;
+  z-index: 3;
+}
+
+/* ── Responsive ── */
+@media (max-width: 968px) {
+  .abt-features__grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (max-width: 640px) {
+  .abt-features { padding: 0 16px; }
+  .abt-features__card { padding: 32px 24px 28px; }
+}
