@@ -6,15 +6,27 @@ const navLinks = [
   { label: 'Home', href: '/', hasDropdown: false },
   {
     label: 'Development', href: '/development', hasDropdown: true,
-    dropdown: ['Web Development Service', 'App Development Service', 'Software Development'],
+    dropdown: [
+      { label: 'Web Development Service', href: '/web-development' },
+      { label: 'App Development Service', href: '/app-development' },
+      { label: 'Software Development', href: '/software-development' },
+    ],
   },
   {
     label: 'Marketing', href: '/marketing', hasDropdown: true,
-    dropdown: ['Digital Marketing Service', 'Search Engine Optimization', 'Social Media Marketing', 'Performance Marketing'],
+    dropdown: [
+      { label: 'Digital Marketing Service', href: '/marketing' },
+      { label: 'Search Engine Optimization', href: '/marketing' },
+      { label: 'Social Media Marketing', href: '/marketing' },
+      { label: 'Performance Marketing', href: '/marketing' },
+    ],
   },
   {
     label: 'Design', href: '/design', hasDropdown: true,
-    dropdown: ['Graphic Design Service', 'UI/UX Design'],
+    dropdown: [
+      { label: 'Graphic Design Service', href: '/design' },
+      { label: 'UI/UX Design', href: '/design' },
+    ],
   },
   { label: 'About', href: '/about', hasDropdown: false },
   { label: 'Contact', href: '/contact', hasDropdown: false },
@@ -85,8 +97,8 @@ export default function Navbar() {
                     </button>
                     <div className={`navbar__dropdown${openDropdown === link.label ? ' navbar__dropdown--open' : ''}`}>
                       {link.dropdown.map((item) => (
-                        <a key={item} href="#" className="navbar__dropdown-item" onClick={() => setOpenDropdown(null)}>
-                          {item}
+                        <a key={item.label} href={item.href} className="navbar__dropdown-item" onClick={() => setOpenDropdown(null)}>
+                          {item.label}
                         </a>
                       ))}
                     </div>
@@ -151,9 +163,9 @@ export default function Navbar() {
                   <div className={`mobile-menu__accordion${mobileAccordion === link.label ? ' mobile-menu__accordion--open' : ''}`}>
                     <div className="mobile-menu__accordion-inner">
                       {link.dropdown.map((item) => (
-                        <a key={item} href="#" className="mobile-menu__sub-item" onClick={closeMenu}>
+                        <a key={item.label} href={item.href} className="mobile-menu__sub-item" onClick={closeMenu}>
                           <span className="mobile-menu__sub-dot" />
-                          {item}
+                          {item.label}
                         </a>
                       ))}
                     </div>
