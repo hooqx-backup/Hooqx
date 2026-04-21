@@ -23,14 +23,14 @@ export default function App() {
       <HomePage />
       <ScrollToTop />
       <Navbar />
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/development" element={<DevelopmentPage />} />
         <Route path="/marketing" element={<MarketingPage />} />
         <Route path="/design" element={<DesignPage />} />
         <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      </Routes> */}
       <Footer />
     </>
   )
