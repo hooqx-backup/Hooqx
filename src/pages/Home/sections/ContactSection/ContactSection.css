@@ -5,8 +5,7 @@
 .cs-section {
   position: relative;
   z-index: 5;
-  margin-top: -5rem;           /* overlap into testimonials */
-  padding: 0 1.5rem 5rem;
+  padding: 5rem 1.5rem 5rem;
 }
 
 .cs-inner {
@@ -141,6 +140,7 @@
 /* ── Field wrapper ── */
 .cs-field {
   position: relative;
+  min-width: 0;
 }
 
 .cs-field--full {
@@ -151,6 +151,7 @@
 .cs-field select,
 .cs-field textarea {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.85rem 1.1rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -241,7 +242,6 @@
 
 @media (max-width: 520px) {
   .cs-section {
-    margin-top: -3rem;
-    padding: 0 1rem 3rem;
+    padding: 3rem 1rem 3rem;
   }
 }

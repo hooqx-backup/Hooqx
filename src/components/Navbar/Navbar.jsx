@@ -16,9 +16,9 @@ const navLinks = [
     label: 'Marketing', href: '/marketing', hasDropdown: true,
     dropdown: [
       { label: 'Digital Marketing Service', href: '/marketing' },
-      { label: 'Search Engine Optimization', href: '/marketing' },
-      { label: 'Social Media Marketing', href: '/marketing' },
-      { label: 'Performance Marketing', href: '/marketing' },
+      { label: 'Search Engine Optimization', href: '/seo' },
+      { label: 'Social Media Marketing', href: '/social-media-marketing' },
+      { label: 'Performance Marketing', href: '/performance-marketing' },
     ],
   },
   {
