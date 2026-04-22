@@ -23,18 +23,17 @@ export default function HomePage() {
         <About />
         <Services />
         <WhyUs />
-        <TechMarquee />
         <Workflow />
       </div>
 
       {/* Full-bleed sections — outside container */}
+      <TechMarquee />
       <Testimonials />
       <ContactSection />
       <PartnersStrip />
-      
 
       <div className="container">
-       <CustomerVideos />
+        <CustomerVideos />
         <Newsletter />
       </div>
     </main>

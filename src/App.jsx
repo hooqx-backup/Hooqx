@@ -6,6 +6,9 @@ import HomePage from "./pages/Home/HomePage";
 import AboutPage from "./pages/About/AboutPage";
 import DevelopmentPage from "./pages/Development/DevelopmentPage";
 import MarketingPage from "./pages/Marketing/MarketingPage";
+import SEOPage from "./pages/Marketing/SEOPage";
+import SocialMediaPage from "./pages/Marketing/SocialMediaPage";
+import PerformanceMarketingPage from "./pages/Marketing/PerformanceMarketingPage";
 import DesignPage from "./pages/Design/DesignPage";
 import ContactPage from "./pages/Contact/ContactPage";
 import "./App.css";
@@ -20,6 +23,9 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/development" element={<DevelopmentPage />} />
         <Route path="/marketing" element={<MarketingPage />} />
+        <Route path="/seo" element={<SEOPage />} />
+        <Route path="/social-media-marketing" element={<SocialMediaPage />} />
+        <Route path="/performance-marketing" element={<PerformanceMarketingPage />} />
         <Route path="/design" element={<DesignPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

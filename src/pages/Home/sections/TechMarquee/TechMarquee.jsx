@@ -48,7 +48,6 @@ export default function TechMarquee() {
               <div className="tmq-card-inner">
                 <img src={src} alt="" draggable={false} />
               </div>
-              <div className="tmq-card-glow" />
             </div>
           ))}
         </div>
