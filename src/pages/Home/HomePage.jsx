@@ -1,5 +1,5 @@
 import Hero from './sections/Hero/Hero'
-import ServicesStrip from './sections/ServicesStrip/ServicesStrip'
+import OurServices from './sections/OurServices/OurServices'
 import VideoSection from './sections/VideoSection/VideoSection'
 import Services from './sections/Services/Services'
 import About from './sections/About/About'
@@ -17,8 +17,8 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
+      <OurServices />
       <div className="container">
-        <ServicesStrip />
         <VideoSection />
         <About />
         <Services />

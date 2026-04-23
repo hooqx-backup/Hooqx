@@ -227,7 +227,7 @@
   flex-direction: column;
   gap: 10px;
 }
-.ft__contact-item {}
+
 
 .ft__contact-row {
   display: flex;
@@ -249,7 +249,6 @@
   display: flex;
   align-items: center;
 }
-.ft__contact-text { flex: 1; }
 .ft__flag {
   flex-shrink: 0;
   font-size: 0.9rem;

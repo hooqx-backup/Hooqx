@@ -18,10 +18,10 @@ import './CustomerVideos.css'
 
 // Added the poster property to the data array
 const customers = [
-  { src: v1, poster: p1, name: 'Barry John Harwood',  role: 'CEO, TechVentures',        rating: 5 },
-  { src: v2, poster: p2, name: 'Nurten Kaymakci',     role: 'Founder, GrowthLab',       rating: 5 },
-  { src: v3, poster: p3, name: 'Danish Rizvi',   role: 'Marketing Dir, NovaBrand', rating: 5 },
-  { src: v4, poster: p4, name: 'Shaadi AbdelAziz',  role: 'Brand Manager, PixelEdge', rating: 5 },
+  { src: v1, poster: p1, name: 'Barry John Harwood',  role: 'Founder & CEO, Harwood Partners FZC',rating: 5 },
+  { src: v2, poster: p2, name: 'Nurten Kaymakci',     role: 'Founder & Managing Director, Prestellar Consulting GMBH', rating: 5 },
+  { src: v3, poster: p3, name: 'Danish Rizvi',   role: 'Partner, Blue Dot Global Trading LLC', rating: 5 },
+  { src: v4, poster: p4, name: 'Shaadi AbdelAziz',  role: 'CEO, Royal Security Services LLC', rating: 5 },
 ]
 
 const StarIcon = () => (
