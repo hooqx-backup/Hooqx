@@ -27,7 +27,6 @@ const wordItem = {
 function PanelIcon({ Icon, color, delay }) {
   return (
     <div className="mv-icon-wrap">
-      {/* Outer orbit ring */}
       <motion.div
         className="mv-icon__orbit mv-icon__orbit--outer"
         style={{ borderColor: `${color}30` }}
@@ -40,7 +39,6 @@ function PanelIcon({ Icon, color, delay }) {
         />
       </motion.div>
 
-      {/* Inner orbit ring */}
       <motion.div
         className="mv-icon__orbit mv-icon__orbit--inner"
         style={{ borderColor: `${color}20` }}
@@ -53,7 +51,6 @@ function PanelIcon({ Icon, color, delay }) {
         />
       </motion.div>
 
-      {/* Pulse rings */}
       {[0, 1].map((i) => (
         <motion.div
           key={i}
@@ -64,7 +61,6 @@ function PanelIcon({ Icon, color, delay }) {
         />
       ))}
 
-      {/* Core */}
       <motion.div
         className="mv-icon__core"
         style={{ background: `radial-gradient(circle, ${color}22, ${color}08)`, borderColor: `${color}40` }}
@@ -90,11 +86,9 @@ function Panel({ side, icon: Icon, color, title, body, pillars, inView }) {
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: side === 'left' ? 0.1 : 0.25 }}
       whileHover={{ y: -8, transition: { type: 'spring', stiffness: 180, damping: 20 } }}
     >
-      {/* Corner brackets */}
       <span className="mv-panel__corner mv-panel__corner--tl" />
       <span className="mv-panel__corner mv-panel__corner--br" />
 
-      {/* Scan line on entry */}
       {inView && (
         <motion.div
           className="mv-panel__scan"
@@ -105,13 +99,10 @@ function Panel({ side, icon: Icon, color, title, body, pillars, inView }) {
         />
       )}
 
-      {/* Grid texture */}
       <div className="mv-panel__grid" />
 
-      {/* Icon */}
       <PanelIcon Icon={Icon} color={color} delay={side === 'left' ? 0 : 0.5} />
 
-      {/* Title word by word */}
       <motion.h3
         className="mv-panel__title"
         variants={wordReveal}
@@ -126,7 +117,6 @@ function Panel({ side, icon: Icon, color, title, body, pillars, inView }) {
         ))}
       </motion.h3>
 
-      {/* Body */}
       <motion.p
         className="mv-panel__body"
         initial={{ opacity: 0, y: 16 }}
@@ -136,7 +126,6 @@ function Panel({ side, icon: Icon, color, title, body, pillars, inView }) {
         {body}
       </motion.p>
 
-      {/* Pillars */}
       <div className="mv-panel__pillars">
         {pillars.map((p, i) => {
           const PIcon = p.icon
@@ -155,7 +144,6 @@ function Panel({ side, icon: Icon, color, title, body, pillars, inView }) {
         })}
       </div>
 
-      {/* Bottom glow bar */}
       <motion.div
         className="mv-panel__bar"
         style={{ background: `linear-gradient(90deg, ${color}, transparent)` }}
@@ -173,7 +161,6 @@ export default function MissionVision() {
 
   return (
     <section className="abt-mv" ref={ref}>
-      {/* Ambient orbs */}
       <motion.div className="abt-mv__orb abt-mv__orb--l"
         animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.9, 0.5] }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
@@ -185,8 +172,6 @@ export default function MissionVision() {
       <div className="abt-mv__grid-bg" />
 
       <div className="abt-mv__container">
-
-        {/* Header */}
         <motion.div
           className="abt-mv__header"
           initial={{ opacity: 0, y: 30 }}
@@ -210,7 +195,6 @@ export default function MissionVision() {
           </p>
         </motion.div>
 
-        {/* Dual panel layout */}
         <div className="abt-mv__duel">
           <Panel
             side="left"
@@ -222,7 +206,6 @@ export default function MissionVision() {
             inView={inView}
           />
 
-          {/* Center energy connector */}
           <div className="abt-mv__connector">
             <motion.div
               className="abt-mv__connector-line"
@@ -230,8 +213,6 @@ export default function MissionVision() {
               animate={inView ? { scaleY: 1 } : {}}
               transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
-
-            {/* Travelling dot on the line */}
             {inView && (
               <motion.div
                 className="abt-mv__connector-traveller"
@@ -239,7 +220,6 @@ export default function MissionVision() {
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
               />
             )}
-
             <motion.div
               className="abt-mv__connector-badge"
               initial={{ scale: 0, opacity: 0 }}

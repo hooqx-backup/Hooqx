@@ -1,103 +1,256 @@
+/* ══════════════════════════
+   CTA — Cinematic Launch Pad
+   ══════════════════════════ */
 .abt-cta {
   position: relative;
-  padding: 120px 24px 100px;
-  background: linear-gradient(135deg, #1a0f2e 0%, #0a0a14 100%);
+  padding: 140px 24px 120px;
+  background: #0a0a14;
   overflow: hidden;
   text-align: center;
 }
 
-.abt-cta__blob {
+/* ── Perspective grid floor ── */
+.abt-cta__floor {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(130px);
+  bottom: 0; left: 0; right: 0;
+  height: 55%;
+  background-image:
+    linear-gradient(rgba(168,85,247,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168,85,247,0.12) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(600px) rotateX(55deg);
+  transform-origin: bottom center;
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
   pointer-events: none;
   z-index: 0;
 }
-.abt-cta__blob--left {
-  width: 600px; height: 600px;
-  top: -200px; left: -300px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+
+/* ── Ambient orbs ── */
+.abt-cta__orb {
+  position: absolute; border-radius: 50%; filter: blur(150px);
+  pointer-events: none; z-index: 0;
 }
-.abt-cta__blob--right {
-  width: 500px; height: 500px;
+.abt-cta__orb--l {
+  width: 700px; height: 700px;
+  top: -200px; left: -250px;
+  background: radial-gradient(circle, rgba(168,85,247,0.28) 0%, transparent 70%);
+}
+.abt-cta__orb--r {
+  width: 550px; height: 550px;
   bottom: -150px; right: -200px;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,229,255,0.18) 0%, transparent 70%);
 }
 
-.abt-cta__content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
+/* ── Particles ── */
+.abt-cta__particles {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
 }
+.abt-cta__particle {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.9), rgba(0,229,255,0.5));
+  will-change: transform, opacity;
+}
+
+/* ── HUD corners ── */
+.abt-cta__hud {
+  position: absolute;
+  width: 28px; height: 28px;
+  border-style: solid;
+  border-color: rgba(168,85,247,0.35);
+  z-index: 2;
+  pointer-events: none;
+}
+.abt-cta__hud--tl { top: 20px; left: 20px; border-width: 2px 0 0 2px; }
+.abt-cta__hud--tr { top: 20px; right: 20px; border-width: 2px 2px 0 0; }
+.abt-cta__hud--bl { bottom: 20px; left: 20px; border-width: 0 0 2px 2px; }
+.abt-cta__hud--br { bottom: 20px; right: 20px; border-width: 0 2px 2px 0; }
+
+/* ── Inner content ── */
+.abt-cta__inner {
+  position: relative;
+  z-index: 3;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ══════════════════
+   ENERGY PORTAL ORB
+   ══════════════════ */
+.abt-cta__portal {
+  position: relative;
+  width: 100px; height: 100px;
+  margin: 0 auto 44px;
+}
+.abt-cta__portal-ring {
+  position: absolute;
+  inset: calc(var(--pr-i) * -16px);
+  border-radius: 50%;
+  border: 1px solid rgba(168,85,247, calc(0.5 - var(--pr-i) * 0.1));
+  pointer-events: none;
+}
+.abt-cta__portal-core {
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.5) 0%, rgba(10,10,20,0.9) 100%);
+  border: 1px solid rgba(168,85,247,0.5);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.abt-cta__portal-inner {
+  position: absolute; inset: 4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(168,85,247,0.5);
+  border-top-color: #00e5ff;
+}
+
+/* ══════════════════
+   HEADING
+   ══════════════════ */
+.abt-cta__heading-wrap { margin-bottom: 24px; }
 
 .abt-cta__heading {
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 24px;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
   color: #f0f0ff;
 }
 
-.abt-cta__heading span {
-  background: linear-gradient(90deg, #a855f7, #00e5ff);
+.abt-cta__heading-line {
+  display: block;
+}
+.abt-cta__heading-line--accent {
+  background: linear-gradient(90deg, #a855f7 0%, #c084fc 40%, #00e5ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.abt-cta__desc {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: rgba(200, 200, 230, 0.7);
-  margin-bottom: 48px;
+/* Sub */
+.abt-cta__sub {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: rgba(200,200,230,0.62);
+  max-width: 560px;
+  margin-bottom: 52px;
 }
 
-.abt-cta__buttons {
+/* ══════════════════
+   BUTTONS
+   ══════════════════ */
+.abt-cta__btns {
   display: flex;
-  gap: 20px;
+  gap: 18px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 44px;
 }
 
 .abt-cta__btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 16px 40px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
+  gap: 10px;
+  padding: 17px 42px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
   text-decoration: none;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
   border: none;
+  overflow: hidden;
+  will-change: transform;
+  letter-spacing: 0.01em;
 }
 
+/* Primary */
 .abt-cta__btn--primary {
-  background: linear-gradient(135deg, #a855f7, #7c3aed);
-  color: white;
-  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.3);
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 50%, #5b21b6 100%);
+  color: #fff;
+  box-shadow:
+    0 8px 32px rgba(168,85,247,0.45),
+    0 0 0 1px rgba(168,85,247,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.15);
 }
 .abt-cta__btn--primary:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 48px rgba(168, 85, 247, 0.4);
+  box-shadow:
+    0 16px 56px rgba(168,85,247,0.65),
+    0 0 0 1px rgba(168,85,247,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
+/* Shimmer sweep */
+.abt-cta__btn-shimmer {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  skewX: -20deg;
+  animation: btnShimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes btnShimmer {
+  0%   { left: -100%; }
+  50%  { left: 150%; }
+  100% { left: 150%; }
+}
+
+/* Secondary */
 .abt-cta__btn--secondary {
-  border: 1.5px solid rgba(168, 85, 247, 0.4);
+  border: 1.5px solid rgba(168,85,247,0.4);
   color: #c4b5fd;
-  background: rgba(168, 85, 247, 0.05);
+  background: rgba(168,85,247,0.06);
+  backdrop-filter: blur(8px);
 }
 .abt-cta__btn--secondary:hover {
-  border-color: rgba(168, 85, 247, 0.8);
-  background: rgba(168, 85, 247, 0.12);
-  transform: translateY(-4px);
+  border-color: rgba(168,85,247,0.8);
+  background: rgba(168,85,247,0.14);
+  color: #fff;
+  box-shadow: 0 0 24px rgba(168,85,247,0.25);
 }
 
+/* ══════════════════
+   TRUST BADGES
+   ══════════════════ */
+.abt-cta__trust {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.abt-cta__trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(168,85,247,0.2);
+  background: rgba(168,85,247,0.06);
+  color: rgba(200,200,230,0.65);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+.abt-cta__trust-item:hover {
+  border-color: rgba(168,85,247,0.5);
+  color: #c4b5fd;
+  background: rgba(168,85,247,0.12);
+}
+.abt-cta__trust-item svg { color: #a855f7; flex-shrink: 0; }
+
+/* ── Responsive ── */
 @media (max-width: 640px) {
-  .abt-cta { padding: 80px 16px 60px; }
-  .abt-cta__buttons { gap: 12px; }
-  .abt-cta__btn { padding: 14px 28px; font-size: 0.9rem; flex: 1; min-width: 140px; }
+  .abt-cta { padding: 100px 16px 80px; }
+  .abt-cta__heading { font-size: 2.4rem; }
+  .abt-cta__btn { padding: 15px 28px; font-size: 0.92rem; flex: 1; min-width: 140px; }
+  .abt-cta__hud { display: none; }
+  .abt-cta__trust { gap: 8px; }
 }
