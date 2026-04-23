@@ -1,4 +1,5 @@
-.sstrip {
+/* ── section wrapper ── */
+.os {
   background: #0d0d1a;
   border-radius: 20px 20px 0 0;
   border: 1px solid rgba(120, 60, 220, 0.2);
@@ -6,13 +7,27 @@
   position: relative;
   overflow: hidden;
   z-index: 5;
-  margin-top: -110px;
+  margin-top: 10px;
   box-shadow:
     0 -20px 80px rgba(0, 0, 0, 0.7),
     0 -4px 20px rgba(120, 60, 220, 0.15);
 }
 
-.sstrip::before {
+/* ── top progress line ── */
+.os__topline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a855f7, #00e5ff);
+  border-radius: 0 2px 2px 0;
+  z-index: 10;
+  transition: width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+/* grid dot background */
+.os::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -23,16 +38,21 @@
   pointer-events: none;
 }
 
-.sstrip__inner {
-  display: flex;
-  align-items: stretch;
+/* ── inner / grid ── */
+.os__inner {
   max-width: 1400px;
   margin: 0 auto;
 }
 
+.os__grid {
+  display: flex;
+  align-items: stretch;
+}
+
 /* ── card ── */
-.sstrip__item {
+.os__item {
   flex: 1;
+  margin-top: 50px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -49,12 +69,12 @@
     box-shadow 0.35s ease;
 }
 
-.sstrip__item:last-child {
+.os__item:last-child {
   border-right: none;
 }
 
-/* shimmer sweep */
-.sstrip__item::after {
+/* shimmer sweep on hover */
+.os__item::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -69,30 +89,12 @@
   pointer-events: none;
 }
 
-.sstrip__item:hover::after {
+.os__item:hover::after {
   transform: translateX(120%);
 }
 
-/* top glow bar */
-.sstrip__item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  width: 80%;
-  height: 2px;
-  background: linear-gradient(90deg, #a855f7, #00e5ff);
-  border-radius: 0 0 4px 4px;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  pointer-events: none;
-}
 
-.sstrip__item:hover::before {
-  transform: translateX(-50%) scaleX(1);
-}
-
-.sstrip__item:hover {
+.os__item:hover {
   background: linear-gradient(
     155deg,
     rgba(168, 85, 247, 0.1) 0%,
@@ -106,8 +108,8 @@
   z-index: 1;
 }
 
-/* ── number ── */
-.sstrip__num {
+/* ── number watermark ── */
+.os__num {
   position: absolute;
   top: 10px;
   right: 14px;
@@ -121,34 +123,35 @@
   transition: color 0.35s ease, transform 0.35s ease;
 }
 
-.sstrip__item:hover .sstrip__num {
+.os__item:hover .os__num {
   color: rgba(168, 85, 247, 0.55);
   transform: scale(1.15);
 }
 
 /* ── icon ── */
-.sstrip__icon {
-  width: 58px;
-  height: 58px;
+.os__icon {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
   transition:
     filter 0.35s ease,
     transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.sstrip__item:hover .sstrip__icon {
+.os__item:hover .os__icon {
   filter:
     drop-shadow(0 0 6px rgba(168, 85, 247, 0.8))
     drop-shadow(0 0 14px rgba(0, 229, 255, 0.5));
   transform: translateY(-5px) scale(1.12);
 }
 
-.sstrip__icon svg {
+.os__icon svg {
   width: 100%;
   height: 100%;
 }
 
 /* ── label ── */
-.sstrip__label {
+.os__label {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -161,42 +164,43 @@
   text-align: center;
   text-transform: uppercase;
   line-height: 1.35;
-
   background: linear-gradient(90deg, #a855f7 0%, #00e5ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-
   transition: filter 0.35s ease, transform 0.35s ease;
 }
 
-.sstrip__item:hover .sstrip__label {
+.os__item:hover .os__label {
   filter: brightness(1.25) drop-shadow(0 0 6px rgba(0, 229, 255, 0.4));
   transform: translateY(-1px);
 }
 
 /* ── responsive ── */
 @media (max-width: 900px) {
-  .sstrip__inner {
+  .os__grid {
     flex-wrap: wrap;
   }
-  .sstrip__item {
+  .os__item {
     flex: 0 0 33.333%;
     border-bottom: 1px solid rgba(120, 60, 220, 0.15);
   }
-  .sstrip__item:nth-child(3n) {
+  .os__item:nth-child(3n) {
     border-right: none;
   }
 }
 
 @media (max-width: 540px) {
-  .sstrip__item {
+  .os {
+    margin-top: -60px;
+  }
+  .os__item {
     flex: 0 0 50%;
   }
-  .sstrip__item:nth-child(3n) {
+  .os__item:nth-child(3n) {
     border-right: 1px solid rgba(120, 60, 220, 0.15);
   }
-  .sstrip__item:nth-child(2n) {
+  .os__item:nth-child(2n) {
     border-right: none;
   }
 }
