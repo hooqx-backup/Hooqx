@@ -36,51 +36,61 @@ function useCounter(target, duration = 2200) {
 }
 
 const TICKER_ITEMS = [
-  'Google Ads', 'Meta Ads', 'PPC Management', 'Retargeting', 'Display Advertising',
-  'Shopping Ads', 'YouTube Ads', 'Programmatic Ads', 'CRO', 'A/B Testing',
-  'Landing Page Optimization', 'Bid Strategy', 'ROAS Optimization', 'Conversion Tracking',
+  'Search Engine Marketing', 'Pay-Per-Click Advertising', 'Affiliate Marketing', 'Social Media Advertising',
+  'Display Advertising', 'Email Marketing', 'CRO', 'Remarketing & Retargeting',
+  'Influencer Marketing', 'Mobile Marketing', 'SEM', 'ROI-Driven Strategies', 'Performance Analytics', 'Conversion Tracking',
 ]
 
 const SERVICES = [
   {
-    num: '01', title: 'Google Search Ads (PPC)',
-    desc: 'Capture high-intent buyers at the exact moment they\'re searching. We build, manage, and optimize Google Search campaigns that deliver maximum ROI with minimum wasted spend.',
-    tags: ['Search Campaigns', 'Smart Bidding', 'Quality Score', 'Ad Extensions'],
+    num: '01', title: 'Search Engine Marketing (SEM)',
+    desc: 'Dominate search results with data-driven SEM campaigns. We craft strategies that place your brand in front of high-intent buyers across all major search engines, maximizing visibility and driving qualified traffic that converts.',
+    tags: ['Google Ads', 'Bing Ads', 'Keyword Strategy', 'Ad Copy'],
   },
   {
-    num: '02', title: 'Meta Ads (Facebook & Instagram)',
-    desc: 'Full-funnel Meta campaigns with precision audience targeting — from cold awareness to retargeting warm audiences — optimized for conversions, not just clicks.',
-    tags: ['Conversion Campaigns', 'Lookalike Audiences', 'Dynamic Ads', 'Retargeting'],
+    num: '02', title: 'Pay-Per-Click Advertising (PPC)',
+    desc: 'Get immediate, measurable results with precision PPC campaigns. We manage your ad spend to ensure every click counts — optimizing bids, targeting, and landing pages to deliver the highest ROI for your budget.',
+    tags: ['Smart Bidding', 'Quality Score', 'Ad Extensions', 'Budget Management'],
   },
   {
-    num: '03', title: 'Google Shopping & Performance Max',
-    desc: 'Drive e-commerce revenue through optimized Shopping feeds and Performance Max campaigns that place your products in front of ready-to-buy customers across Google\'s entire network.',
-    tags: ['Shopping Feeds', 'Performance Max', 'Merchant Center', 'ROAS'],
+    num: '03', title: 'Affiliate Marketing',
+    desc: 'Scale your reach through performance-based affiliate partnerships. We identify, recruit, and manage top affiliates who drive qualified traffic and conversions on a pay-for-results model — zero waste, pure performance.',
+    tags: ['Affiliate Networks', 'Partner Recruitment', 'Commission Strategy', 'Tracking'],
   },
   {
-    num: '04', title: 'YouTube Advertising',
-    desc: 'In-stream, discovery, and bumper ads on the world\'s second-largest search engine — crafted to build brand awareness and drive measurable action from your video budget.',
-    tags: ['In-Stream Ads', 'Discovery Ads', 'Video Action Campaigns'],
+    num: '04', title: 'Social Media Advertising',
+    desc: 'Connect with your ideal audience across Facebook, Instagram, LinkedIn, TikTok, and more. Our targeted social campaigns are designed to drive engagement, generate leads, and convert followers into paying customers.',
+    tags: ['Meta Ads', 'LinkedIn Ads', 'TikTok Ads', 'Audience Targeting'],
   },
   {
-    num: '05', title: 'Programmatic & Display Advertising',
-    desc: 'Data-driven display campaigns across premium publisher networks, using real-time bidding and audience segmentation to reach your ideal customer wherever they browse.',
-    tags: ['Programmatic', 'Display Network', 'Real-Time Bidding', 'Audience Targeting'],
+    num: '05', title: 'Display Advertising',
+    desc: 'Build brand awareness and capture attention with visually compelling display ads. We place your creative across premium publisher networks using real-time bidding and audience segmentation to reach your ideal customer.',
+    tags: ['Programmatic', 'Display Network', 'Banner Ads', 'Real-Time Bidding'],
   },
   {
-    num: '06', title: 'Retargeting & Remarketing',
-    desc: 'Re-engage visitors who didn\'t convert with precisely timed ads across Google, Meta, and the open web — bringing high-intent prospects back at the perfect moment.',
-    tags: ['Dynamic Retargeting', 'Pixel Tracking', 'Audience Lists', 'Cross-Platform'],
+    num: '06', title: 'Email Marketing',
+    desc: 'Nurture leads and retain customers with personalized, data-driven email campaigns. From automated sequences to broadcast campaigns, we craft messages that drive opens, clicks, and revenue at scale.',
+    tags: ['Email Automation', 'Segmentation', 'A/B Testing', 'Deliverability'],
   },
   {
     num: '07', title: 'Conversion Rate Optimization (CRO)',
-    desc: 'Turn more of your existing traffic into customers through landing page testing, UX improvements, and funnel analysis that reduce CPA and increase revenue per visitor.',
+    desc: 'Turn more of your existing traffic into customers through landing page testing, UX improvements, and funnel analysis that reduce CPA and increase revenue per visitor — without increasing ad spend.',
     tags: ['A/B Testing', 'Landing Pages', 'Heatmaps', 'Funnel Analysis'],
   },
   {
-    num: '08', title: 'Paid Social — LinkedIn & TikTok',
-    desc: 'Reach professional buyers on LinkedIn or engage younger demographics on TikTok with platform-native ad formats designed for each audience\'s behavior and intent.',
-    tags: ['LinkedIn Ads', 'TikTok Ads', 'Lead Gen Forms', 'Spark Ads'],
+    num: '08', title: 'Remarketing / Retargeting Campaigns',
+    desc: 'Re-engage visitors who didn\'t convert with precisely timed ads across Google, Meta, and the open web — bringing high-intent prospects back at exactly the right moment to close the deal.',
+    tags: ['Dynamic Retargeting', 'Pixel Tracking', 'Audience Lists', 'Cross-Platform'],
+  },
+  {
+    num: '09', title: 'Influencer Marketing',
+    desc: 'Amplify your brand through strategic influencer partnerships. We identify and manage collaborations with influencers whose audiences align with your target market, delivering authentic reach and measurable impact.',
+    tags: ['Influencer Outreach', 'Campaign Management', 'ROI Tracking', 'Content Strategy'],
+  },
+  {
+    num: '10', title: 'Mobile Marketing',
+    desc: 'Reach your audience wherever they are with mobile-first marketing strategies. From in-app advertising to SMS campaigns, we optimize every touchpoint for mobile users to maximize engagement and conversions.',
+    tags: ['In-App Ads', 'SMS Marketing', 'Mobile Optimization', 'App Store Ads'],
   },
 ]
 
@@ -218,7 +228,7 @@ export default function PerformanceMarketingPage() {
               className="mk-hero__sub"
               variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } } }}
             >
-              We run paid media campaigns across Google, Meta, LinkedIn, TikTok, and beyond — with relentless optimization to ensure every dollar you spend drives measurable, accountable growth.
+              At Hooqx, we redefine success by focusing on measurable outcomes. Our expert team combines strategic precision with data-driven insights to craft campaigns that not only engage but convert — because your success is our metric of excellence.
             </motion.p>
 
             <motion.div
@@ -258,10 +268,10 @@ export default function PerformanceMarketingPage() {
             viewport={vp}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mk-eyebrow"><span className="mk-eyebrow__dot" />Why Performance Marketing</p>
+            <p className="mk-eyebrow"><span className="mk-eyebrow__dot" />The Importance of Performance Marketing</p>
             <h2 className="mk-intro__heading">
-              Pay for Results.<br />
-              Not Just <span className="mk-grad">Reach.</span>
+              Hook, Line,<br />
+              and <span className="mk-grad">Metrics.</span>
             </h2>
           </motion.div>
           <motion.div
@@ -272,13 +282,13 @@ export default function PerformanceMarketingPage() {
             transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <p>
-              Traditional advertising asks you to trust that your message reached the right people. Performance marketing proves it. Every click, lead, and sale is tracked — giving you complete visibility into exactly what your ad spend is generating.
+              Engaging in performance marketing is pivotal now, as it allows businesses to precisely target their audience, optimize ad spend, and achieve measurable results — ensuring a strategic and efficient approach to digital advertising in today's competitive landscape.
             </p>
             <p>
-              Hooqx Performance Marketing combines certified expertise across all major platforms with a data-obsessed optimization culture. We don't just manage your campaigns — we engineer them for maximum return, continuously cutting waste and scaling winners.
+              From targeted advertisements to ROI-driven strategies, we're dedicated to maximising your marketing investments. We don't just run campaigns; we engineer performance that propels your brand to new heights.
             </p>
             <div className="mk-intro__pills">
-              {['Google Ads', 'Meta Ads', 'PPC', 'Retargeting', 'CRO'].map((p, i) => (
+              {['SEM', 'PPC', 'Affiliate Marketing', 'CRO', 'Influencer Marketing'].map((p, i) => (
                 <span key={i} className="mk-pill">{p}</span>
               ))}
             </div>
@@ -407,7 +417,7 @@ export default function PerformanceMarketingPage() {
             viewport={vp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="mk-eyebrow__dot" />Our Advantage
+            <span className="mk-eyebrow__dot" />Performance Marketing Mastery
           </motion.p>
           <motion.h2
             className="mk-why__heading"
@@ -416,8 +426,8 @@ export default function PerformanceMarketingPage() {
             viewport={vp}
             transition={{ duration: 0.75, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
           >
-            Ad Spend That<br />
-            Actually <span className="mk-grad">Works</span>
+            Hook More Success<br />
+            with <span className="mk-grad">Hooqx</span>
           </motion.h2>
           <motion.p
             className="mk-why__sub"
@@ -426,7 +436,7 @@ export default function PerformanceMarketingPage() {
             viewport={vp}
             transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            Our performance marketing approach is built on certified expertise, rigorous data discipline, and a relentless focus on the metrics that actually move your business forward.
+            We take pride in being the finest in performance marketing, utilizing data-driven strategies to maximize your ROI, precisely target your audience, and achieve unparalleled results in the digital advertising space — ensuring your campaigns stand out and succeed in today's competitive landscape.
           </motion.p>
 
           <div className="mk-why__points">
