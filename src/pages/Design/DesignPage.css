@@ -1,0 +1,109 @@
+.design-page {
+  background: var(--bg-base);
+}
+
+.design-page__hero {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 90px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.design-page__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.22), transparent 40%),
+    linear-gradient(135deg, rgba(8, 8, 14, 0.9) 0%, rgba(8, 8, 14, 0.7) 45%, rgba(8, 8, 14, 0.88) 100%);
+}
+
+.design-page__content {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  text-align: center;
+}
+
+.design-page__eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.76rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  font-weight: 700;
+}
+
+.design-page__title {
+  margin: 0 0 18px;
+  color: var(--text-primary);
+  font-size: clamp(2.1rem, 5vw, 4rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.design-page__subtitle {
+  max-width: 700px;
+  margin: 0 auto 34px;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.design-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.design-page__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.design-page__btn--primary {
+  color: #fff;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+}
+
+.design-page__btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 38px rgba(124, 58, 237, 0.46);
+}
+
+.design-page__btn--outline {
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.design-page__btn--outline:hover {
+  transform: translateY(-2px);
+  border-color: rgba(167, 139, 250, 0.52);
+  background: rgba(124, 58, 237, 0.15);
+}
+
+@media (max-width: 700px) {
+  .design-page__hero {
+    min-height: 64vh;
+    padding-top: 110px;
+  }
+
+  .design-page__subtitle {
+    font-size: 0.94rem;
+  }
+}
