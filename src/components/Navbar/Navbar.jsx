@@ -24,8 +24,8 @@ const navLinks = [
   {
     label: 'Design', href: '/design', hasDropdown: true,
     dropdown: [
-      { label: 'Graphic Design Service', href: '/design' },
-      { label: 'UI/UX Design', href: '/design' },
+      { label: 'Graphic Design Service', href: '/graphics-design' },
+      { label: 'UI/UX Design', href: '/ui-ux-design' },
     ],
   },
   { label: 'About', href: '/about', hasDropdown: false },

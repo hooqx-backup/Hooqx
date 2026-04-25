@@ -17,7 +17,6 @@ export default function AboutPage() {
       <MissionVision />
       <Values />
       <Portfolio />
-      {/* <Team /> */}
       <Technologies />
       <CTA />
     </main>

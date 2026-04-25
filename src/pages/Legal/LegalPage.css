@@ -1,0 +1,119 @@
+.legal-page {
+  position: relative;
+  background:
+    radial-gradient(1300px 700px at 8% -10%, rgba(124, 58, 237, 0.25), transparent 55%),
+    radial-gradient(900px 520px at 92% 0%, rgba(0, 229, 255, 0.12), transparent 58%),
+    linear-gradient(180deg, #090913 0%, #070710 100%);
+  color: var(--text-primary);
+}
+
+.legal-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(167, 139, 250, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(167, 139, 250, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black 10%, transparent 100%);
+}
+
+.legal-hero {
+  position: relative;
+  z-index: 1;
+  padding: 128px 24px 52px;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.24);
+}
+
+.legal-hero__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.legal-kicker {
+  margin: 0;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  color: rgba(167, 139, 250, 0.9);
+}
+
+.legal-hero h1 {
+  margin: 12px 0 14px;
+  font-size: clamp(2rem, 4.4vw, 3.3rem);
+  line-height: 1.08;
+}
+
+.legal-subtitle {
+  max-width: 780px;
+  margin: 0;
+  color: rgba(240, 240, 245, 0.74);
+  font-size: 1.02rem;
+}
+
+.legal-content {
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px 88px;
+}
+
+.legal-card {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 34px;
+  background: linear-gradient(180deg, rgba(16, 16, 26, 0.92), rgba(12, 12, 20, 0.9));
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 22px;
+  box-shadow:
+    0 10px 42px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.legal-intro {
+  margin: 0 0 24px;
+  color: rgba(240, 240, 245, 0.82);
+}
+
+.legal-section {
+  padding-top: 22px;
+  margin-top: 22px;
+  border-top: 1px solid rgba(167, 139, 250, 0.18);
+}
+
+.legal-section h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  color: #ece8ff;
+}
+
+.legal-section p {
+  margin: 0;
+  line-height: 1.72;
+  color: rgba(240, 240, 245, 0.76);
+}
+
+@media (max-width: 900px) {
+  .legal-hero {
+    padding-top: 108px;
+  }
+
+  .legal-card {
+    padding: 24px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .legal-hero {
+    padding: 96px 18px 40px;
+  }
+
+  .legal-content {
+    padding: 28px 18px 72px;
+  }
+
+  .legal-card {
+    padding: 20px;
+  }
+}

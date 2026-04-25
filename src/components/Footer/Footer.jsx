@@ -6,13 +6,13 @@ import EarthCanvas from './EarthCanvas'
 import './Footer.css'
 
 const services = [
-  'Web Development',
-  'App Development',
-  'UI/UX Design',
-  'SEO',
-  'SMO',
-  'Career',
-  'Blog',
+  { label: 'Web Development', href: '/web-development' },
+  { label: 'App Development', href: '/app-development' },
+  { label: 'UI/UX Design', href: '/ui-ux-design' },
+  { label: 'SEO', href: '/seo' },
+  { label: 'SMO', href: '/social-media-marketing' },
+  { label: 'Career', href: '/contact' },
+  { label: 'Blog', href: '/contact' },
 ]
 
 const contacts = [
@@ -35,7 +35,7 @@ const contacts = [
 const socials = [
   {
     label: 'Facebook',
-    href: '#',
+    href: 'https://www.facebook.com/hooqx',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
         <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
@@ -44,7 +44,7 @@ const socials = [
   },
   {
     label: 'Twitter',
-    href: '#',
+    href: 'https://x.com/HooqxM',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
         <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
@@ -53,7 +53,7 @@ const socials = [
   },
   {
     label: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/hooqxllc/',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -141,14 +141,14 @@ export default function Footer() {
             </h4>
             <ul className="ft__list">
               {services.map((s) => (
-                <li key={s}>
-                  <a href="#" className="ft__link">
+                <li key={s.label}>
+                  <a href={s.href} className="ft__link">
                     <span className="ft__link-arrow">
                       <svg viewBox="0 0 16 16" fill="none" width="10" height="10">
                         <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </span>
-                    {s}
+                    {s.label}
                   </a>
                 </li>
               ))}
@@ -276,6 +276,12 @@ export default function Footer() {
                 Unsubscribe anytime
               </span>
             </div>
+
+            <div className="ft__legal-inline" aria-label="Legal links">
+              <a href="/privacy-policy" className="ft__legal-link">Privacy Policy</a>
+              <a href="/terms-and-conditions" className="ft__legal-link">Terms &amp; Conditions</a>
+              <a href="/cookie-policy" className="ft__legal-link">Cookie Policy</a>
+            </div>
           </motion.div>
 
         </div>
@@ -292,11 +298,11 @@ export default function Footer() {
         <div className="ft__bottom-inner">
           <p className="ft__copy">Copyright © Hooqx LLC — All rights reserved.</p>
           <div className="ft__bottom-links">
-            <a href="#" className="ft__bottom-link">Privacy Policy</a>
+            <a href="/privacy-policy" className="ft__bottom-link">Privacy Policy</a>
             <span className="ft__bottom-dot" />
-            <a href="#" className="ft__bottom-link">Terms of Service</a>
+            <a href="/terms-and-conditions" className="ft__bottom-link">Terms and Conditions</a>
             <span className="ft__bottom-dot" />
-            <a href="#" className="ft__bottom-link">Cookie Policy</a>
+            <a href="/cookie-policy" className="ft__bottom-link">Cookie Policy</a>
           </div>
         </div>
       </motion.div>
