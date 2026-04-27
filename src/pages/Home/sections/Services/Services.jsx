@@ -250,10 +250,6 @@ export default function Services() {
                   </a>
                 </div>
 
-                {/* icon badge overlapping image bottom */}
-                <div className="srv__icon-badge">
-                  {s.icon}
-                </div>
               </div>
 
               {/* body */}

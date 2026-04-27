@@ -151,26 +151,23 @@ const itemVariant = {
 export default function ServicesStrip() {
   return (
     <section className="sstrip">
-      <div className="sstrip__inner">
-        <motion.div
-          className="sstrip__inner"
-          variants={stagger(0.08, 0.1)}
-          initial="hidden"
-          whileInView="show"
-          viewport={vp}
-          style={{ display: 'contents' }}
-        >
-          {services.map((s) => (
-            <motion.div className="sstrip__item" key={s.num} variants={itemVariant}>
-              <span className="sstrip__num">{s.num}</span>
-              <div className="sstrip__icon">{s.icon}</div>
-              <p className="sstrip__label">
-                {s.label.map((line, i) => <span key={i}>{line}</span>)}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+      <motion.div
+        className="sstrip__inner"
+        variants={stagger(0.08, 0.1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={vp}
+      >
+        {services.map((s) => (
+          <motion.div className="sstrip__item" key={s.num} variants={itemVariant}>
+            <span className="sstrip__num">{s.num}</span>
+            <div className="sstrip__icon">{s.icon}</div>
+            <p className="sstrip__label">
+              {s.label.map((line, i) => <span key={i}>{line}</span>)}
+            </p>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   )
 }

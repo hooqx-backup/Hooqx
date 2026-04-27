@@ -3,12 +3,17 @@
   padding: 140px 24px 120px;
   background: #0a0a14;
   overflow: hidden;
+}
+
+.abt-hero__container {
+  max-width: 1400px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Blobs ── */
@@ -61,7 +66,6 @@
 /* ── Content ── */
 .abt-hero__content {
   position: relative;
-  z-index: 2;
   max-width: 580px;
 }
 
@@ -308,9 +312,11 @@
 /* ── Responsive ── */
 @media (max-width: 968px) {
   .abt-hero {
+    padding: 90px 24px 70px;
+  }
+  .abt-hero__container {
     grid-template-columns: 1fr;
     gap: 50px;
-    padding: 90px 24px 70px;
   }
   .abt-hero__images { height: 420px; }
   .abt-hero__img-secondary { width: 50%; height: 200px; }

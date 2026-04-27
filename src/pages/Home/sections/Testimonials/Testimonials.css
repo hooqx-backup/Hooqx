@@ -65,6 +65,12 @@
   overflow: hidden;
 }
 
+@media (min-width: 861px) {
+  .tm-card {
+    padding: 2.8rem 2.5rem 2.3rem;
+  }
+}
+
 .tm-card::before {
   content: '';
   position: absolute;

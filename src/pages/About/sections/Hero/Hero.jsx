@@ -137,7 +137,8 @@ export default function AboutHero() {
         ))}
       </div>
 
-      {/* Content */}
+      {/* Content + Images */}
+      <div className="abt-hero__container">
       <div className="abt-hero__content">
         <motion.span
           className="abt-hero__eyebrow"
@@ -283,6 +284,7 @@ export default function AboutHero() {
           transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
         />
       </motion.div>
+      </div>
     </section>
   )
 }

@@ -1141,6 +1141,14 @@
 }
 
 @media (max-width: 700px) {
+  .ux-testi {
+    padding: 92px 16px;
+  }
+
+  .ux-testi__inner {
+    max-width: 100%;
+  }
+
   .ux-hero__title {
     font-size: 2.8rem;
   }
@@ -1160,10 +1168,19 @@
   }
 
   .ux-testi__card {
-    padding: 28px 22px;
+    padding: 30px 20px;
+    border-radius: 22px;
+  }
+
+  .ux-testi__quote-mark {
+    font-size: 5.5rem;
+    line-height: 0.8;
+    margin-bottom: 14px;
+    margin-left: 2px;
   }
 
   .ux-testi__quote {
     font-size: 0.95rem;
+    line-height: 1.75;
   }
 }

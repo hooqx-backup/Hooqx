@@ -72,7 +72,7 @@
 }
 .wv-layout {
   display: grid;
-  grid-template-columns: 1fr 1.42fr;
+  grid-template-columns: 1fr 1.1fr;
   gap: 68px;
   align-items: start;
 }
@@ -368,20 +368,21 @@
    FORM
    ══════════════════════════ */
 .wv-form {
-  padding: 28px 32px 32px;
+  padding: 28px 56px 32px;
   display: flex; flex-direction: column;
 }
 .wv-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  gap: 40px;
   margin-bottom: 18px;
 }
 
 /* Field */
 .wv-field {
-  display: flex; flex-direction: column; gap: 7px;
+  display: flex; flex-direction: column; gap: 10px;
   margin-bottom: 18px;
+  width: 100%
 }
 .wv-row .wv-field { margin-bottom: 0; }
 

@@ -117,9 +117,9 @@ const PROCESS = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Lisa Chen', role: 'Verified Customer', rating: 5, video: vid3, quote: 'Hooqx shines in the digital crowd with their creativity and expertise. Their engaging social campaigns transformed our brand and set them apart from everyone else.' },
-  { name: 'Musa Al Jaber', role: 'Verified Customer', rating: 5, video: vid1, quote: 'Their social media team is incredible. Our Instagram following tripled in just four months and the engagement quality is outstanding. Highly recommend Hooqx!' },
-  { name: 'Daniel W.', role: 'Verified Customer', rating: 5, video: vid2, quote: "Hooqx flawlessly executed our social strategy, seamlessly translating our brand's identity into viral content that surpassed all our engagement goals." },
+  { name: 'Danish Rizvi', role: 'Verified Customer', rating: 5, video: vid3, quote: 'Hooqx shines in the digital crowd with their creativity and expertise. Their engaging social campaigns transformed our brand and set them apart from everyone else.' },
+  { name: 'Barry John Harwood', role: 'Verified Customer', rating: 5, video: vid1, quote: 'Their social media team is incredible. Our Instagram following tripled in just four months and the engagement quality is outstanding. Highly recommend Hooqx!' },
+  { name: 'Nurten Kaymakci', role: 'Verified Customer', rating: 5, video: vid2, quote: "Hooqx flawlessly executed our social strategy, seamlessly translating our brand's identity into viral content that surpassed all our engagement goals." },
 ]
 
 const FAQS = [

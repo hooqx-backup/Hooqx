@@ -112,9 +112,9 @@ const PROCESS = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Sara K.', role: 'Verified Customer', rating: 5, video: vid1, quote: 'Hooqx redesigned our complete brand identity and the result was breathtaking. Our customers instantly noticed — sales conversations became easier because people trusted us more.' },
-  { name: 'James R.', role: 'Verified Customer', rating: 5, video: vid2, quote: 'The packaging they designed for us went viral on Instagram before we even launched. Three competitors reached out asking who our designer was. Incredible work, impeccable professionalism.' },
-  { name: 'Aisha M.', role: 'Verified Customer', rating: 5, video: vid3, quote: 'From logo to brand guidelines and social templates — everything was delivered ahead of schedule and exceeded what I thought was possible. A truly world-class creative team.' },
+  { name: 'Barry John Harwood', role: 'Verified Customer', rating: 5, video: vid1, quote: 'Hooqx redesigned our complete brand identity and the result was breathtaking. Our customers instantly noticed — sales conversations became easier because people trusted us more.' },
+  { name: 'Nurten Kaymakci', role: 'Verified Customer', rating: 5, video: vid2, quote: 'The packaging they designed for us went viral on Instagram before we even launched. Three competitors reached out asking who our designer was. Incredible work, impeccable professionalism.' },
+  { name: 'Danish Rizvi', role: 'Verified Customer', rating: 5, video: vid3, quote: 'From logo to brand guidelines and social templates — everything was delivered ahead of schedule and exceeded what I thought was possible. A truly world-class creative team.' },
 ]
 
 const FAQS = [

@@ -192,6 +192,7 @@
   display: grid;
   gap: 26px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
 }
 
 .srv__card {
@@ -209,6 +210,8 @@
   border: 1px solid var(--srv-border);
   box-shadow: 0 20px 42px rgba(7, 4, 18, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition: transform 0.18s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  width: 100%;
+  max-width: 390px;
 }
 
 .srv__card::before {
@@ -296,18 +299,17 @@
 .srv__reveal-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  border-radius: 10px;
+  padding: 6px 12px;
+  border-radius: 7px;
   text-decoration: none;
-  font-size: 0.78rem;
+  font-size: 0.65rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
   color: #f8f4ff;
   background: linear-gradient(135deg, rgba(109, 40, 217, 0.92), rgba(124, 58, 237, 0.92));
   border: 1px solid rgba(216, 203, 255, 0.5);
-  box-shadow: 0 10px 24px rgba(76, 29, 149, 0.5);
+  box-shadow: 0 6px 16px rgba(76, 29, 149, 0.5);
 }
 
 .srv__icon-badge {
@@ -393,6 +395,7 @@
   line-height: 1.75;
   color: var(--srv-muted);
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -449,17 +452,26 @@
   border-bottom-color: rgba(216, 203, 255, 0.62);
 }
 
-@media (max-width: 1040px) {
-  .srv__cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+/* =========================================
+   RESPONSIVE DESIGN 
+========================================= */
 
+@media (max-width: 1040px) {
   .srv__metrics {
     max-width: 680px;
     grid-template-columns: 1fr;
   }
 }
 
+/* TABLET (1024px and below): 3 columns (3 + 3 for six cards) */
+@media (max-width: 1024px) {
+  .srv__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* MOBILE (640px and below): single column */
 @media (max-width: 640px) {
   .srv {
     padding: 84px 16px 74px;
@@ -467,7 +479,31 @@
 
   .srv__cards {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .srv__card {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Center alignment for narrow mobile cards */
+  .srv__body {
+    padding: 20px 14px 18px;
+    text-align: center;
+  }
+
+  .srv__meta {
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .srv__link {
+    justify-content: center;
+    width: 100%;
   }
 
   .srv__watermark {

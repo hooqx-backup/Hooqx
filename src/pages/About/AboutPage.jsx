@@ -7,18 +7,21 @@ import Portfolio from './sections/Portfolio/Portfolio'
 import Team from './sections/Team/Team'
 import Technologies from './sections/Technologies/Technologies'
 import CTA from './sections/CTA/CTA'
+import './AboutPage.css'
 
 export default function AboutPage() {
   return (
-    <main style={{ background: '#0a0a14' }}>
-      <AboutHero />
-      <Features />
-      <Stats />
-      <MissionVision />
-      <Values />
-      <Portfolio />
-      <Technologies />
-      <CTA />
+    <main className="about-page">
+      <div className="container">
+        <AboutHero />
+        <Features />
+        <Stats />
+        <MissionVision />
+        <Values />
+        <Portfolio />
+        <Technologies />
+        <CTA />
+      </div>
     </main>
   )
 }

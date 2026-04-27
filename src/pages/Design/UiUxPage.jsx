@@ -150,9 +150,9 @@ const PROCESS = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Marcus T.', role: 'Verified Customer', rating: 5, video: vid1, quote: 'Hooqx redesigned our SaaS dashboard and the results were immediate. User onboarding time dropped by 40% in the first month. Their research process uncovered issues our team had missed for years.' },
-  { name: 'Priya S.', role: 'Verified Customer', rating: 5, video: vid2, quote: 'The design system they built for us has transformed how we ship features. What used to take weeks now takes days. Every component is documented, accessible, and pixel-perfect.' },
-  { name: 'Oliver N.', role: 'Verified Customer', rating: 5, video: vid3, quote: 'Our app redesign by Hooqx drove a 58% lift in conversion and our App Store rating went from 3.2 to 4.8 within three months. The attention to user experience was extraordinary.' },
+  { name: 'Barry John Harwood', role: 'Verified Customer', rating: 5, video: vid1, quote: 'Hooqx redesigned our SaaS dashboard and the results were immediate. User onboarding time dropped by 40% in the first month. Their research process uncovered issues our team had missed for years.' },
+  { name: 'Nurten Kaymakci', role: 'Verified Customer', rating: 5, video: vid2, quote: 'The design system they built for us has transformed how we ship features. What used to take weeks now takes days. Every component is documented, accessible, and pixel-perfect.' },
+  { name: 'Danish Rizvi', role: 'Verified Customer', rating: 5, video: vid3, quote: 'Our app redesign by Hooqx drove a 58% lift in conversion and our App Store rating went from 3.2 to 4.8 within three months. The attention to user experience was extraordinary.' },
 ]
 
 const FAQS = [
