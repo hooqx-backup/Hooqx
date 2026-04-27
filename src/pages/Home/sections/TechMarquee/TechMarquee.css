@@ -194,7 +194,7 @@
   height: 100%;
   object-fit: contain;
   border-radius: 12px;
-  background-color: #ffffff;
+  background-color: #8401ffef;
   filter: brightness(0.75) grayscale(0.3);
   transition: filter 0.35s ease;
   user-select: none;

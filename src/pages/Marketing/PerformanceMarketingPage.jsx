@@ -116,9 +116,9 @@ const PROCESS = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Daniel W.', role: 'Verified Customer', rating: 5, video: vid2, quote: "Hooqx flawlessly executed our paid campaigns, delivering a 4.9× ROAS that far exceeded our expectations. Their attention to detail and optimization cadence surpassed our goals." },
-  { name: 'Musa Al Jaber', role: 'Verified Customer', rating: 5, video: vid1, quote: 'Our Google Ads were burning money before Hooqx. They restructured everything and cut our CPA by 38% in the first two months while tripling our conversions. Incredible results.' },
-  { name: 'Lisa Chen', role: 'Verified Customer', rating: 5, video: vid3, quote: 'Hooqx runs our Meta and Google campaigns with precision. The reporting is transparent, the results are real, and their team is always available to explain strategy.' },
+  { name: 'Nurten Kaymakci', role: 'Verified Customer', rating: 5, video: vid2, quote: "Hooqx flawlessly executed our paid campaigns, delivering a 4.9× ROAS that far exceeded our expectations. Their attention to detail and optimization cadence surpassed our goals." },
+  { name: 'Barry John Harwood', role: 'Verified Customer', rating: 5, video: vid1, quote: 'Our Google Ads were burning money before Hooqx. They restructured everything and cut our CPA by 38% in the first two months while tripling our conversions. Incredible results.' },
+  { name: 'Danish Rizvi', role: 'Verified Customer', rating: 5, video: vid3, quote: 'Hooqx runs our Meta and Google campaigns with precision. The reporting is transparent, the results are real, and their team is always available to explain strategy.' },
 ]
 
 const FAQS = [

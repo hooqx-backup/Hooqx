@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import hooqxfulllogo from '../../assets/images/hooqxfulllogo.png'
 import './Navbar.css'
 
@@ -78,9 +79,9 @@ export default function Navbar() {
 
       <nav ref={navRef} className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
         <div className="navbar__container">
-          <a href="/" className="navbar__logo">
+          <Link to="/" className="navbar__logo">
             <img src={hooqxfulllogo} alt="Hooqx" />
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <ul className="navbar__links">
@@ -97,16 +98,16 @@ export default function Navbar() {
                     </button>
                     <div className={`navbar__dropdown${openDropdown === link.label ? ' navbar__dropdown--open' : ''}`}>
                       {link.dropdown.map((item) => (
-                        <a key={item.label} href={item.href} className="navbar__dropdown-item" onClick={() => setOpenDropdown(null)}>
+                        <Link key={item.label} to={item.href} className="navbar__dropdown-item" onClick={() => setOpenDropdown(null)}>
                           {item.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </>
                 ) : (
-                  <a href={link.href} className="navbar__link">
+                  <Link to={link.href} className="navbar__link">
                     {link.label}
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}
@@ -121,7 +122,7 @@ export default function Navbar() {
             <span className="navbar__phone-number">+1 (470) 380-9098</span>
           </a>
 
-          <a href="/contact" className="navbar__cta navbar__cta--desktop">Let's Build</a>
+          <Link to="/contact" className="navbar__cta navbar__cta--desktop">Let's Build</Link>
 
           {/* Hamburger */}
           <button
@@ -140,12 +141,6 @@ export default function Navbar() {
 
       {/* Mobile slide-in panel */}
       <div className={`mobile-menu${menuOpen ? ' mobile-menu--open' : ''}`}>
-        <div className="mobile-menu__header">
-          <a href="/" className="mobile-menu__logo" onClick={closeMenu}>
-            <img src={hooqxfulllogo} alt="Hooqx" />
-          </a>
-        </div>
-
         <nav className="mobile-menu__nav">
           {navLinks.map((link, i) => (
             <div key={link.label} className="mobile-menu__item" style={{ '--i': i }}>
@@ -163,18 +158,18 @@ export default function Navbar() {
                   <div className={`mobile-menu__accordion${mobileAccordion === link.label ? ' mobile-menu__accordion--open' : ''}`}>
                     <div className="mobile-menu__accordion-inner">
                       {link.dropdown.map((item) => (
-                        <a key={item.label} href={item.href} className="mobile-menu__sub-item" onClick={closeMenu}>
+                        <Link key={item.label} to={item.href} className="mobile-menu__sub-item" onClick={closeMenu}>
                           <span className="mobile-menu__sub-dot" />
                           {item.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
                 </>
               ) : (
-                <a href={link.href} className="mobile-menu__link" onClick={closeMenu}>
+                <Link to={link.href} className="mobile-menu__link" onClick={closeMenu}>
                   <span>{link.label}</span>
-                </a>
+                </Link>
               )}
             </div>
           ))}
@@ -187,9 +182,9 @@ export default function Navbar() {
             </svg>
             +1 (470) 380-9098
           </a>
-          <a href="/contact" className="navbar__cta mobile-menu__cta" onClick={closeMenu}>
+          <Link to="/contact" className="navbar__cta mobile-menu__cta" onClick={closeMenu}>
             Let's Build
-          </a>
+          </Link>
         </div>
       </div>
     </>
