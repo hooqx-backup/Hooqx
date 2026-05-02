@@ -216,7 +216,6 @@ export default function GraphicsDesignPage() {
               variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 22 } } }}
             >
               <a href="#services" className="gd-btn gd-btn--primary">Explore Design Services</a>
-              <a href="mailto:hello@hooqx.com" className="gd-btn gd-btn--outline">Start a Project</a>
             </motion.div>
 
             <motion.div
@@ -421,7 +420,7 @@ export default function GraphicsDesignPage() {
             viewport={vp}
             transition={{ duration: 0.6, delay: 0.22 }}
           >
-            {['E-Commerce', 'Healthcare', 'Fintech', 'Real Estate', 'Fashion', 'Technology'].map((p, i) => (
+            {['Brand Identity', 'Logo Design', 'Social Media', 'Motion Graphics', 'Packaging', 'Print Design'].map((p, i) => (
               <span key={i} className="gd-pill">{p}</span>
             ))}
           </motion.div>
@@ -661,16 +660,8 @@ export default function GraphicsDesignPage() {
           </p>
           <div className="gd-cta__btns">
             <motion.a
-              href="mailto:hello@hooqx.com"
-              className="gd-btn gd-btn--primary gd-btn--lg"
-              whileHover={{ scale: 1.05, boxShadow: '0 12px 48px rgba(236,72,153,0.55)' }}
-              whileTap={{ scale: 0.96 }}
-            >
-              Start a Project
-            </motion.a>
-            <motion.a
               href="#services"
-              className="gd-btn gd-btn--outline gd-btn--lg"
+              className="gd-btn gd-btn--primary gd-btn--lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.96 }}
             >

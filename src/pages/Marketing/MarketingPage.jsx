@@ -41,7 +41,7 @@ const TICKER_ITEMS = [
   'Content Marketing', 'Email Marketing', 'Influencer Marketing',
   'Video Marketing', 'Marketing Automation', 'Affiliate Marketing',
   'Online Reputation Management', 'Display Advertising', 'Remarketing',
-  'Voice Search Optimization', 'Local SEO', 'E-commerce Marketing',
+  'Voice Search Optimization', 'Local SEO', 'Performance Marketing',
 ]
 
 const SERVICES = [
@@ -113,9 +113,9 @@ const SERVICES = [
   },
   {
     num: '12',
-    title: 'E-commerce Marketing',
-    desc: 'Full-funnel e-commerce growth strategies spanning Google Shopping, Meta ads, and marketplace optimization for maximum revenue.',
-    tags: ['Google Shopping', 'Meta Ads', 'Marketplaces'],
+    title: 'Performance Marketing',
+    desc: 'Full-funnel paid growth strategies spanning Google Shopping, Meta ads, and marketplace optimization for maximum revenue.',
+    tags: ['Google Shopping', 'Meta Ads', 'Paid Campaigns'],
   },
   {
     num: '13',
@@ -148,7 +148,7 @@ const WHY_POINTS = [
   { title: 'Creativity Meets Analytics', desc: 'Every campaign blends bold creative with rigorous data science for maximum impact and measurable ROI.' },
   { title: 'Full-Funnel Strategy', desc: 'From awareness to retention — we own every stage of your customer journey without gaps.' },
   { title: 'Transparent Reporting', desc: 'Real-time dashboards and plain-English monthly reports. Zero vanity metrics, only what moves the needle.' },
-  { title: 'Industry-Agnostic Expertise', desc: 'We have grown brands across e-commerce, SaaS, finance, hospitality, healthcare, and beyond.' },
+  { title: 'Multi-Industry Expertise', desc: 'We have grown brands across startups, SMEs, and global enterprises — adapting our strategy to every scale and goal.' },
 ]
 
 const PROCESS = [
@@ -283,7 +283,6 @@ export default function MarketingPage() {
               variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 22 } } }}
             >
               <a href="#services" className="mk-btn mk-btn--primary">Explore Services</a>
-              <a href="mailto:hello@hooqx.com" className="mk-btn mk-btn--outline">Get a Free Audit</a>
             </motion.div>
           </motion.div>
         </motion.div>

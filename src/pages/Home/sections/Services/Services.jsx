@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { fadeUp, stagger, vp } from '../../../../lib/motion'
 import img1 from '../../../../assets/images/service_sm_01.jpg'
@@ -15,7 +16,7 @@ const services = [
     title: 'Web Development Service',
     desc: 'Our web development team is dedicated to turning your digital dreams into reality. Whether it\'s a sleek landing page or a complex web app, we deliver.',
     img: img1,
-    href: '#web',
+    href: '/web-development',
     icon: (
       <svg viewBox="0 0 28 28" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <defs><linearGradient id="si1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="100%" stopColor="#7c3aed"/></linearGradient></defs>
@@ -36,7 +37,7 @@ const services = [
     title: 'App Development Service',
     desc: 'At Hooqx, we believe that great design and seamless development are the cornerstones of a successful mobile experience.',
     img: img2,
-    href: '#app',
+    href: '/app-development',
     icon: (
       <svg viewBox="0 0 28 28" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <defs><linearGradient id="si2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="100%" stopColor="#7c3aed"/></linearGradient></defs>
@@ -55,7 +56,7 @@ const services = [
     title: 'Software Development',
     desc: 'At Hooqx, we believe software development isn\'t just about writing code — it\'s about crafting experiences that power real businesses.',
     img: img3,
-    href: '#software',
+    href: '/software-development',
     icon: (
       <svg viewBox="0 0 28 28" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <defs><linearGradient id="si3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="100%" stopColor="#7c3aed"/></linearGradient></defs>
@@ -74,7 +75,7 @@ const services = [
     title: 'Digital Marketing Service',
     desc: 'Embark on a journey of digital success with Hooqx Digital Marketing Services. We don\'t just market — we amplify your reach and multiply your ROI.',
     img: img4,
-    href: '#marketing',
+    href: '/marketing',
     icon: (
       <svg viewBox="0 0 28 28" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <defs><linearGradient id="si4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="100%" stopColor="#7c3aed"/></linearGradient></defs>
@@ -94,7 +95,7 @@ const services = [
     title: 'UI / UX Design Service',
     desc: 'We craft intuitive, beautiful interfaces that captivate users from the first click. Great design isn\'t just aesthetics — it\'s the engine of conversion.',
     img: img5,
-    href: '#design',
+    href: '/ui-ux-design',
     icon: (
       <svg viewBox="0 0 28 28" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <defs><linearGradient id="si5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="100%" stopColor="#7c3aed"/></linearGradient></defs>
@@ -113,7 +114,7 @@ const services = [
     title: 'IT Services & Support',
     desc: 'End-to-end IT support and infrastructure management to keep your business running at full speed — from setup to 24/7 proactive monitoring.',
     img: img6,
-    href: '#it',
+    href: '/contact',
     icon: (
       <svg viewBox="0 0 28 28" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <defs><linearGradient id="si6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#c4b5fd"/><stop offset="100%" stopColor="#7c3aed"/></linearGradient></defs>
@@ -242,12 +243,12 @@ export default function Services() {
 
                 {/* hover reveal panel */}
                 <div className="srv__reveal">
-                  <a href={s.href} className="srv__reveal-btn">
+                  <Link to={s.href} className="srv__reveal-btn">
                     View Service
                     <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
                       <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
                     </svg>
-                  </a>
+                  </Link>
                 </div>
 
               </div>
@@ -260,12 +261,12 @@ export default function Services() {
                 </div>
                 <h3 className="srv__title">{s.title}</h3>
                 <p className="srv__desc">{s.desc}</p>
-                <a href={s.href} className="srv__link">
+                <Link to={s.href} className="srv__link">
                   <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
                     <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                   Read More
-                </a>
+                </Link>
               </div>
 
               {/* corner accent */}

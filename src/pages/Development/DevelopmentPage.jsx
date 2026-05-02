@@ -135,7 +135,7 @@ const TESTIMONIALS = [
 ]
 
 const FAQS = [
-  { q: 'What services does Hooqx offer?', a: 'Hooqx specializes in a wide range of web development services including website design, front-end development, back-end development, e-commerce solutions, CMS development, web application development, and website maintenance.' },
+  { q: 'What services does Hooqx offer?', a: 'Hooqx specializes in a wide range of web development services including website design, front-end development, back-end development, CMS development, web application development, and website maintenance.' },
   { q: 'How experienced is the team at Hooqx?', a: 'Our team consists of seasoned professionals with over 5 years of combined experience delivering 500+ projects across diverse industries worldwide. Each project is handled by dedicated domain experts who bring precision and passion to every line of code.' },
   { q: 'What technologies does Hooqx work with?', a: 'We work with modern technologies including React, Next.js, Node.js, Python, PHP, WordPress, Shopify, and many more — always selecting the best-fit stack for your specific project requirements and scalability goals.' },
   { q: 'How long does it take to build a website?', a: 'Timelines vary by complexity. A standard website typically takes 2–4 weeks, while complex web applications may take 3–6 months. We provide a detailed project roadmap with clear milestones during our initial consultation.' },
@@ -311,7 +311,7 @@ export default function DevelopmentPage() {
               className="wd-section-title"
               variants={{ hidden: { opacity: 0, x: -50, skewX: -8 }, show: { opacity: 1, x: 0, skewX: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } }}
             >
-              Net Gains: The Importance of<br />
+              The Importance of<br />
               <span className="wd-grad-text">Web Development</span><br />
               in the Digital Age
             </motion.h2>
@@ -517,18 +517,6 @@ export default function DevelopmentPage() {
                 </motion.div>
               ))}
             </div>
-            <motion.a
-              href="mailto:hello@hooqx.com"
-              className="wd-btn wd-btn--primary"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={vp}
-              transition={{ delay: 0.65, type: 'spring', stiffness: 240, damping: 20 }}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              Start Your Project
-            </motion.a>
           </div>
         </div>
       </section>

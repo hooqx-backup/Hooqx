@@ -37,7 +37,7 @@ function useCounter(target, duration = 2200) {
 
 const TICKER_ITEMS = [
   'On-Page SEO', 'Off-Page SEO', 'Technical SEO', 'Local SEO',
-  'E-commerce SEO', 'Voice Search Optimization', 'Link Building',
+  'Voice Search Optimization', 'Link Building',
   'Keyword Research', 'Schema Markup', 'Core Web Vitals',
   'Content Optimization', 'Competitor Analysis', 'Site Audits', 'Google Business Profile',
 ]
@@ -64,22 +64,17 @@ const SERVICES = [
     tags: ['Google Business', 'Local Citations', 'Maps SEO'],
   },
   {
-    num: '05', title: 'E-commerce SEO',
-    desc: 'Product and category page optimization, structured data for rich snippets, and site architecture improvements that drive purchase-ready traffic.',
-    tags: ['Product SEO', 'Rich Snippets', 'Category Pages'],
-  },
-  {
-    num: '06', title: 'Keyword Research & Strategy',
+    num: '05', title: 'Keyword Research & Strategy',
     desc: 'Comprehensive keyword mapping across the full funnel — from awareness to conversion — prioritized by search volume, competition, and business value.',
     tags: ['Keyword Mapping', 'Competitor Gap Analysis', 'Search Intent'],
   },
   {
-    num: '07', title: 'Content SEO',
+    num: '06', title: 'Content SEO',
     desc: 'Topical authority clusters, pillar pages, and long-form content strategies that position your brand as the definitive answer in your niche.',
     tags: ['Pillar Pages', 'Topic Clusters', 'Blog Strategy'],
   },
   {
-    num: '08', title: 'Voice Search & AI Optimization',
+    num: '07', title: 'Voice Search & AI Optimization',
     desc: 'Future-proof your visibility with conversational keyword targeting and structured data optimized for voice assistants and AI-powered search.',
     tags: ['Voice Search', 'Featured Snippets', 'Conversational SEO'],
   },
@@ -227,7 +222,6 @@ export default function SEOPage() {
               variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 22 } } }}
             >
               <a href="#services" className="mk-btn mk-btn--primary">Explore SEO Services</a>
-              <a href="mailto:hello@hooqx.com" className="mk-btn mk-btn--outline">Get a Free SEO Audit</a>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -279,7 +273,7 @@ export default function SEOPage() {
               In a digital landscape saturated with noise, our SEO experts cut through the clutter to amplify your brand's voice. From meticulous keyword research to strategic on-page optimization, we engineer a roadmap to catapult your website to the top of search engine rankings — because being on top is where you belong.
             </p>
             <div className="mk-intro__pills">
-              {['Technical', 'On-Page', 'Off-Page', 'Local', 'E-commerce'].map((p, i) => (
+              {['Technical', 'On-Page', 'Off-Page', 'Local', 'Content'].map((p, i) => (
                 <span key={i} className="mk-pill">{p}</span>
               ))}
             </div>
@@ -645,14 +639,6 @@ export default function SEOPage() {
             Every day you're not on page one, your competitors are capturing the customers you should have. Let's change that — starting now.
           </p>
           <div className="mk-cta__btns">
-            <motion.a
-              href="mailto:hello@hooqx.com"
-              className="mk-btn mk-btn--primary mk-btn--lg"
-              whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(124,58,237,0.7)' }}
-              whileTap={{ scale: 0.96 }}
-            >
-              Get a Free SEO Audit
-            </motion.a>
             <motion.a
               href="#services"
               className="mk-btn mk-btn--outline mk-btn--lg"

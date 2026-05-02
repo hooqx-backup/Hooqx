@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { slideLeft, slideRight, fadeUp, stagger, blurUp, vp } from '../../../../lib/motion'
 import img1 from '../../../../assets/images/herobannerimage1.jpg'
@@ -118,17 +119,12 @@ export default function About() {
           </motion.div>
 
           <motion.div className="abt__ctas" variants={blurUp}>
-            <a className="abt__btn abt__btn--primary" href="#contact">
+            <Link className="abt__btn abt__btn--primary" to="/about">
               Read More
               <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
                 <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
-            </a>
-            <button className="abt__btn abt__btn--icon" aria-label="Next">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
+            </Link>
           </motion.div>
         </motion.div>
 

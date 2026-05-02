@@ -74,8 +74,8 @@ const SERVICES = [
   },
   {
     icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>),
-    title: 'E-commerce App',
-    desc: 'Powerful shopping experiences with secure checkout, real-time inventory, wishlists, and personalised product recommendations.',
+    title: 'Business App',
+    desc: 'Powerful business applications with seamless user experiences, secure transactions, real-time data, and personalised features.',
   },
   {
     icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>),

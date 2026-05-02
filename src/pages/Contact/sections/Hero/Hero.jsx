@@ -296,13 +296,6 @@ export default function ContactHero() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 2.1 }}
           >
-            <motion.a href="#contact-form" className="cnt-hero__btn cnt-hero__btn--primary"
-              whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 280, damping: 18 }}
-            >
-              Start a Project
-              <span className="cnt-hero__btn-shimmer" />
-            </motion.a>
             <motion.a href="tel:+14703809098" className="cnt-hero__btn cnt-hero__btn--ghost"
               whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
               transition={{ type: 'spring', stiffness: 280, damping: 18 }}

@@ -75,48 +75,30 @@ const SERVICES = [
   'Custom Software Solutions',
   'Mobile App Development',
   'Web Application Development',
-  'E-commerce Development',
+  'Portal & Dashboard Development',
   'API Integration',
   'UX/UI Design',
-  'Cloud Solutions',
-  'Software Maintenance & Support',
-  'Database Design & Management',
-  'QA & Testing',
-  'DevOps Services',
-  'Blockchain Development',
-  'Artificial Intelligence & Machine Learning',
-  'Internet of Things (IoT) Solutions',
-  'Legacy System Modernization',
 ]
 
 const TESTIMONIALS = [
   {
-    name: 'Musa Al Jaber',
-    role: 'Verified Customer',
-    rating: 5,
-    video: vid1,
+    name: 'Barry John Harwood', role: 'Verified Customer', rating: 5, video: vid1,
     quote: 'Hooqx is very good and respond back quickly, their SEO technique make my website come to the top of the search. Very nice service! I will recommend for sure.',
   },
   {
-    name: 'Daniel W.',
-    role: 'Verified Customer',
-    rating: 5,
-    video: vid2,
+    name: 'Nurten Kaymakci', role: 'Verified Customer', rating: 5, video: vid2,
     quote: "Hooqx flawlessly executed our digital campaign, seamlessly translating our brand's identity into success. Their attention to detail surpassed our goals, and we're eager to continue with them.",
   },
   {
-    name: 'Lisa Chen',
-    role: 'Verified Customer',
-    rating: 5,
-    video: vid3,
-    quote: 'Hooqx shines in the digital crowd with their creativity and expertise. Their visually stunning platforms and engaging digital journeys transformed our brand.',
+    name: 'Danish Rizvi', role: 'Verified Customer', rating: 5, video: vid3,
+    quote: 'Hooqx shines in the digital crowd with their creativity and expertise. Their visually stunning platforms and engaging digital journeys transformed our brand, setting them apart with dedication.',
   },
 ]
 
 const FAQS = [
   {
     q: 'What kinds of software does Hooqx build?',
-    a: 'We build custom business platforms, SaaS products, enterprise software, automation tools, e-commerce systems, and integrated applications tailored to your workflow and growth goals.',
+    a: 'We build custom business platforms, automation tools, web applications, and integrated software solutions tailored to your workflow and growth goals.',
   },
   {
     q: 'Can you modernize our legacy systems?',
@@ -501,18 +483,6 @@ export default function SoftwareDevelopmentPage() {
                 </motion.div>
               ))}
             </div>
-            <motion.a
-              href="mailto:hello@hooqx.com"
-              className="wd-btn wd-btn--primary"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={vp}
-              transition={{ delay: 0.65, type: 'spring', stiffness: 240, damping: 20 }}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              Start Your Project
-            </motion.a>
           </div>
         </div>
       </section>
