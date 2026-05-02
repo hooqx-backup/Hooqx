@@ -35,12 +35,6 @@ function useCounter(target, duration = 2200) {
   return [count, ref]
 }
 
-const TICKER_ITEMS = [
-  'Instagram Marketing', 'Facebook Ads', 'LinkedIn Marketing', 'TikTok Growth',
-  'YouTube Strategy', 'Twitter/X Marketing', 'Content Creation', 'Community Management',
-  'Influencer Outreach', 'Social Media Audits', 'Paid Social Ads', 'Reels & Shorts',
-  'Brand Storytelling', 'Engagement Strategy',
-]
 
 const SERVICES = [
   {
@@ -237,7 +231,6 @@ export default function SocialMediaPage() {
               variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 22 } } }}
             >
               <a href="#services" className="mk-btn mk-btn--primary">Explore SMM Services</a>
-              <a href="mailto:hello@hooqx.com" className="mk-btn mk-btn--outline">Get a Free Social Audit</a>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -248,17 +241,6 @@ export default function SocialMediaPage() {
           </div>
         </div>
       </section>
-
-      <div className="mk-ticker">
-        <div className="mk-ticker__track">
-          {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-            <span key={i} className="mk-ticker__item">
-              <span className="mk-ticker__dot" />
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
 
       <section className="mk-intro">
         <div className="mk-intro__inner">
@@ -655,14 +637,6 @@ export default function SocialMediaPage() {
             Stop posting into the void. Let Hooqx build a social presence that attracts the right audience and converts them into loyal customers.
           </p>
           <div className="mk-cta__btns">
-            <motion.a
-              href="mailto:hello@hooqx.com"
-              className="mk-btn mk-btn--primary mk-btn--lg"
-              whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(124,58,237,0.7)' }}
-              whileTap={{ scale: 0.96 }}
-            >
-              Get a Free Social Audit
-            </motion.a>
             <motion.a
               href="#services"
               className="mk-btn mk-btn--outline mk-btn--lg"

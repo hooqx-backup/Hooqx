@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import logo from '../../assets/images/hooqxfulllogo.png'
 import { vp, fadeUp, stagger } from '../../lib/motion'
@@ -70,17 +69,6 @@ const colVariant = (delay) => ({
 })
 
 export default function Footer() {
-  const [email, setEmail] = useState('')
-  const [sent, setSent] = useState(false)
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    if (!email) return
-    setSent(true)
-    setEmail('')
-    setTimeout(() => setSent(false), 3000)
-  }
-
   return (
     <footer className="ft">
 
@@ -211,77 +199,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
-
-          {/* ── Col 4: Newsletter ── */}
-          <motion.div
-            className="ft__col ft__col--newsletter"
-            variants={colVariant(0.3)}
-            initial="hidden"
-            whileInView="show"
-            viewport={vp}
-          >
-            <h4 className="ft__heading">
-              Newsletter
-              <span className="ft__heading-bar" />
-            </h4>
-            <p className="ft__nl-desc">
-              Stay updated with the latest in tech — subscribe now for trending news!
-            </p>
-
-            <form className="ft__nl-form" onSubmit={handleSubmit}>
-              <div className="ft__nl-field">
-                <input
-                  type="email"
-                  className="ft__nl-input"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button type="submit" className="ft__nl-btn" aria-label="Subscribe">
-                  {sent ? (
-                    <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                  ) : (
-                    <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
-                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
-                    </svg>
-                  )}
-                </button>
-              </div>
-              {sent && <p className="ft__nl-success">You're subscribed!</p>}
-            </form>
-
-            <div className="ft__trust">
-              <span className="ft__trust-item">
-                <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
-                  <path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1-3-2.9 4.2-.9z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
-                </svg>
-                No spam
-              </span>
-              <span className="ft__trust-item">
-                <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
-                  <rect x="2" y="7" width="12" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
-                  <path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-                </svg>
-                100% private
-              </span>
-              <span className="ft__trust-item">
-                <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
-                  <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="1.2"/>
-                  <path d="M5 8l2 2 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                Unsubscribe anytime
-              </span>
-            </div>
-
-            <div className="ft__legal-inline" aria-label="Legal links">
-              <a href="/privacy-policy" className="ft__legal-link">Privacy Policy</a>
-              <a href="/terms-and-conditions" className="ft__legal-link">Terms &amp; Conditions</a>
-              <a href="/cookie-policy" className="ft__legal-link">Cookie Policy</a>
-            </div>
           </motion.div>
 
         </div>

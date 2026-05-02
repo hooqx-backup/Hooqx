@@ -69,8 +69,8 @@ const SERVICES = [
   {
     num: '05',
     title: 'Web Interface Design',
-    desc: 'SaaS dashboards, e-commerce flows, landing pages, and admin interfaces designed for conversion, clarity, and delight — every interaction considered, every layout purposeful.',
-    tags: ['SaaS Dashboards', 'E-Commerce', 'Landing Pages', 'Admin UI'],
+    desc: 'Web dashboards, landing pages, and admin interfaces designed for conversion, clarity, and delight — every interaction considered, every layout purposeful.',
+    tags: ['Web Dashboards', 'Landing Pages', 'Admin UI', 'Portals'],
   },
   {
     num: '06',
@@ -278,7 +278,6 @@ export default function UiUxPage() {
               variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 22 } } }}
             >
               <a href="#services" className="ux-btn ux-btn--primary">Explore UX Services</a>
-              <a href="mailto:hello@hooqx.com" className="ux-btn ux-btn--outline">Get a Free UX Audit</a>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -439,9 +438,6 @@ export default function UiUxPage() {
             viewport={vp}
             transition={{ delay: 0.4, duration: 0.65 }}
           >
-            <a href="mailto:hello@hooqx.com" className="ux-btn ux-btn--primary ux-btn--lg">
-              Start Your UX Project
-            </a>
           </motion.div>
         </div>
       </section>
@@ -623,20 +619,12 @@ export default function UiUxPage() {
             <span className="ux-grad">Bad Experiences.</span>
           </h2>
           <p className="ux-cta__sub">
-            Get a free UX audit and find out exactly where your product is losing users — and how to fix it. No commitment needed.
+            Ready to build a product your users love? Let's design an experience that drives results and keeps people coming back.
           </p>
           <div className="ux-cta__btns">
             <motion.a
-              href="mailto:hello@hooqx.com"
-              className="ux-btn ux-btn--primary ux-btn--lg"
-              whileHover={{ scale: 1.05, boxShadow: '0 12px 48px rgba(124,58,237,0.5)' }}
-              whileTap={{ scale: 0.96 }}
-            >
-              Get a Free UX Audit
-            </motion.a>
-            <motion.a
               href="#services"
-              className="ux-btn ux-btn--outline ux-btn--lg"
+              className="ux-btn ux-btn--primary ux-btn--lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.96 }}
             >
