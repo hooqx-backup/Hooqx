@@ -2,28 +2,39 @@ import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import { fadeUp, blurUp, stagger, vp } from '../../../../lib/motion'
+import p1 from '../../../../assets/images/poster1.png'
+import p2 from '../../../../assets/images/poster2.png'
+import p3 from '../../../../assets/images/poster3.png'
+import p4 from '../../../../assets/images/poster4.png'
 import './Testimonials.css'
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'CEO, TechVentures',
-    initials: 'SJ',
-    quote: 'Hooqx transformed our online presence completely. The results exceeded our expectations.',
+    name: 'Nurten Kaymakci',
+    role: 'Founder & Managing Director, Prestellar Consulting GMBH',
+    photo: p2,
+    quote: 'Hooqx delivered a website tailored perfectly to our vision and provided outstanding support throughout the entire process. Their professional approach, creative ideas, and marketing expertise helped us attract many new clients. We highly recommend Hooqx for anyone looking for a reliable web development and digital marketing partner.',
     stars: 5,
   },
   {
-    name: 'Marcus Lee',
-    role: 'Founder, GrowthLab',
-    initials: 'ML',
-    quote: 'Professional, fast, and incredibly skilled. Our app launched on time and under budget.',
+    name: 'Barry John Harwood',
+    role: 'Founder & CEO, Harwood Partners FZC',
+    photo: p1,
+    quote: 'Hooqx delivered a first-class website with high-quality design and perfectly tailored content for our business. Their team was responsive, professional, and completed everything within the promised timeline. Thanks to their work, we launched quickly and saw a strong impact in attracting new business.',
     stars: 5,
   },
   {
-    name: 'Priya Sharma',
-    role: 'Marketing Director, NovaBrand',
-    initials: 'PS',
-    quote: 'Their digital marketing team tripled our leads in just three months. Incredible team.',
+    name: 'Danish Rizvi',
+    role: 'Partner, Blue Dot Global Trading LLC',
+    photo: p3,
+    quote: 'Hooqx transformed our vision into a professional, high-quality website with exceptional attention to detail. Their dedicated team delivered the project on time with outstanding communication and support throughout. We highly recommend Hooqx to anyone looking for expert website design and development.',
+    stars: 5,
+  },
+  {
+    name: 'Shaadi AbdelAziz',
+    role: 'CEO, Royal Security Services LLC',
+    photo: p4,
+    quote: 'Hooqx delivered a beautifully designed website with excellent communication and support throughout the project. Their expertise in web development and Google Ads helped us start generating customer inquiries soon after launch. We highly recommend Hooqx for businesses looking to grow their online presence.',
     stars: 5,
   },
 ]
@@ -86,7 +97,7 @@ export default function Testimonials() {
 
                 <div className="tm-author">
                   <div className="tm-avatar">
-                    {t.initials}
+                    <img src={t.photo} alt={t.name} className="tm-avatar-img" />
                     <span className="tm-avatar-dot" />
                   </div>
                   <div>
